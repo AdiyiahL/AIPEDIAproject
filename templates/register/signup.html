@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static '../../static/css/users_style.css' %}">
+</head>
+<body>
+ <form class="box" action="{% url 'users:signup' %}" method="post">
+     {% csrf_token %}
+  <h1>SignUp</h1>
+     <input type="text" name="user" placeholder="Username" >
+     <input type="text" name="email" placeholder="Email" >
+     <input type="text" name="mobile" placeholder="Mobile Phone" >
+     <input type="text" name="age" placeholder="Age" >
+     <input type="password" name="pwd" placeholder="Password" >
+     <input type="password" name="pwdconfirm" placeholder="Password Confirm" >
+  <input type="submit" name="" value="Signup">
+     <span style="color: red;">{{ error }}</span>
+<div class="ui message">
+                have an account？<a href="{% url 'users:login' %}">login</a>
+</div>
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<a href="/content/add/content/">
+   <button>add</button>
+</a>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Level</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in queryset %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>
+            <a href="/{{ item.title }}">{{ item.title }}</a>
+        </td>
+        <td>{{ item.level }}</td>
+        <td>
+            <a href="/delete/contentlevel/?id={{ item.id }}">Delete</a>
+            <a href="/edit/contentlevel/?id={{ item.id }}">Edit</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+
+</div>
+{% endblock %}

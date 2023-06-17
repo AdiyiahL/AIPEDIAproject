@@ -1,0 +1,484 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to SpaCy</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href="{% static 'css/content_style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/home/" class="logo">AI-PEDIA</a>
+        <ul class="nav">
+            <li><a href="#what">What is it</a> </li>
+            <li><a href="#how">How to use</a> </li>
+            <li><a href="#try">Try it now</a> </li>
+            <li><a href="#play">Let's play</a> </li>
+        </ul>
+    </div>
+    <div class="banner-area" id="home">
+        <div id="character-A"></div>
+        <div id="speech-bubble-A"></div>
+        <div id="character-B"></div>
+        <div id="speech-bubble-B"></div>
+        <div id="character-C"></div>
+        <div id="speech-bubble-C"></div>
+    </div>
+    <div class="what-area" id="what">
+        <div class="text-part">
+            <h1>What is SpaCy?</h1>
+            <h2></h2>
+            <p>
+                SpaCy is an open-source natural language processing (NLP) library designed to be efficient, scalable, and
+                production-ready. It provides a simple and intuitive API for processing and analyzing textual data, making it a
+                popular choice among developers and researchers working with NLP tasks.
+            </p>
+            <section class="services-section">
+      <div class="inner-width">
+          <h2>Key <strong>Features</strong> of SpaCy</h2>
+        <div class="services owl-carousel">
+<!--1-->
+          <div class="service">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <div class="service-name">Tokenization</div>
+            <div class="service-desc">Efficient tokenization and linguistic annotations. Segmenting text into words, punctuations marks etc.</div>
+          </div>
+<!--2-->
+            <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-comment" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Part-of-speech tagging</div>
+            <div class="service-desc">Assigning word types to tokens, like verb or noun.</div>
+          </div>
+
+          <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-id-card" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Named entity recognition</div>
+            <div class="service-desc">Labelling named “real-world” objects, like persons, companies or locations.</div>
+          </div>
+<!--4-->
+          <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-language" ></i>
+            </div>
+            <div class="service-name">Syntax parsing</div>
+            <div class="service-desc">Assigning syntactic dependency labels, describing the relations between individual tokens, like subject or object.</div>
+          </div>
+<!--5-->
+          <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Similarity</div>
+            <div class="service-desc">Word vectors and similarity. Comparing words, text spans and documents and how similar they are to each other. </div>
+          </div>
+<!--6-->
+          <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-tags" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Text classification</div>
+            <div class="service-desc">Assigning categories or labels to a whole document, or parts of a document.</div>
+          </div>
+<!--7-->
+            <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-users" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Custom rule-based matching.</div>
+            <div class="service-desc">Finding sequences of tokens based on their texts and linguistic annotations, similar to regular expressions.</div>
+          </div>
+<!--8-->
+            <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-cogs" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Training</div>
+            <div class="service-desc">Training of machine learning models. Updating and improving a statistical model’s predictions.</div>
+          </div>
+<!--9-->
+            <div class="service">
+            <div class="service-icon">
+              <i class="fa fa-cubes" aria-hidden="true"></i>
+            </div>
+            <div class="service-name">Integration</div>
+            <div class="service-desc">Easy integration with other libraries and frameworks</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+        </div>
+    </div>
+    <div class="how-area" id="how">
+        <div class="text-part">
+            <h1>How to use SpaCy?</h1>
+            <h2 onclick="toggleContent('how-content1')" class="hand-cursor">Installation</h2>
+            <div id="how-content1" class="hidden-content">
+                <p>
+                To install SpaCy, you can use pip, the Python package manager, by running the following command:
+                </p>
+                <code>pip install spacy</code>
+            </div>
+
+
+            <h2 onclick="toggleContent('how-content2')" class="hand-cursor">Getting Started</h2>
+            <div id="how-content2" class="hidden-content">
+                <div class="process-wrapper">
+                <div id="progress-bar-container">
+                  <ul>
+                    <li class="step step01 active"><div class="step-inner">Tokenization</div></li>
+                    <li class="step step02"><div class="step-inner">Recognition</div></li>
+                    <li class="step step03"><div class="step-inner">Syntax Parsing</div></li>
+                    <li class="step step04"><div class="step-inner"></div></li>
+                    <li class="step step05"><div class="step-inner"></div></li>
+                  </ul>
+
+                  <div id="line">
+                    <div id="line-progress"></div>
+                  </div>
+                </div>
+                <div id="progress-content-section">
+                  <div class="section-content discovery active">
+                    <h2>Tokenization</h2>
+                    <p>
+                        Import the spacy package, call the load method, store the English model to be applied in the variable nlp, and use the model to analyze the text.
+                    </p>
+              <pre class="code-block">
+              <code>
+              text = 'My daughter, Jane, never dreamed of receiving a letter
+              from a girl of her own age in Holland. Last year, we were travelling
+              across the Channel and Jane put a piece of paper with her name and address on it into a bottle.
+              She threw the bottle into the sea. She never thought of it again,
+              but ten months later, she received a letter from a girl in Holland.
+              Both girls write to each other regularly now.
+              However, they have decided to use the post office.
+              Letters will cost a little more, but they will certainly travel faster.'
+              </code>
+              <code>import spacy</code>
+              <code>nlp = spacy.load('en')</code>
+              <code>doc = nlp(text)</code>
+              </pre>
+                      <p>We try to use Spacy to analyze all tokens that appear in the text.</p>
+              <pre class="code-block">
+              <code>for token in doc:</code>
+              <code>   print('"'+token.text+'"') </code>
+              </pre>
+              <p>
+                  The output shows some attributes of the first 10 tokens:
+                  text, index value, token, whether it is a punctuation mark, whether it is a space, and a mark;
+              </p>
+              <pre class="code-block">
+              <code>
+              for token in doc[:10]:
+                  print("{0}\t{1}\t{2}\t{3}\t{4}\t{5}\t[6]".format(
+                  token.text,
+                  token.idx,
+                  token.lemma_,
+                  token.is_punct,
+                  token.is_space,
+                  token.tag_
+              </code>
+              </pre>
+                      <img src="../../static/image/img_1.png" id="image0">
+
+                  </div>
+
+                  <div class="section-content strategy">
+                    <h2>Named entity recognition</h2>
+                    <p>First, we analyze the entity vocabulary (entity) that appears in the full text;</p>
+                <pre class="code-block">
+                <code>
+                for ent in doc.ents:
+                    print(ent.text, ent.label_)
+                </code>
+                </pre>
+                    <p>
+                        As can be seen from the figure below, Spacy has extracted all entities such as names, places, and dates in this text:
+                    </p>  
+                    <img src="../../static/image/img.png" id="image1">
+                    <p>Secondly, calling the dislacy method can visualize the entity vocabulary;</p>
+                <pre class="code-block">
+                <code>
+                from spacy import displacy
+                displacy.render(doc, style='ent', jupyter=True)
+                </code>
+                </pre>
+                      <p>As shown in the figure below, Spacy highlights the different attributes of the entity vocabulary in the text in different colors:</p>
+                    <img src="../../static/image/img_2.png" id="image2">
+                  </div>
+
+                  <div class="section-content creative">
+                    <h2>Syntax Parsing</h2>
+                    <p>
+                        Next, we analyze and visualize the dependency relationship of word cases in a sentence:
+
+First of all, if you want to analyze a single sentence, you need to convert it into a list;
+                    </p>
+                <pre class="code-block">
+                <code>
+                list(doc.sents)
+                </code>
+                </pre>
+                <img src="../../static/image/img_3.png" id="image3">
+                <p>Then extract the first sentence and process it with the nlp model, and store it in a new variable:</p>
+                <pre class="code-block">
+                <code>
+                newdoc = nlp(list(doc.sents)[0].text)
+                </code>
+                </pre>
+                <p>
+                   Second, we use a for loop to output the dependencies between tokens;
+                </p>
+                <pre class="code-block">
+                <code>
+                for token in newdoc:
+                    print("{0}/{1} <--{2}-- {3}/{4}".format(
+                        token.text, token.tag_, token.dep_, token.head.text, token.head.tag_))
+                </code>
+                </pre>
+                <img src="../../static/image/img_4.png" id="image4">
+                <p>
+                    Then call the display method for visualization:
+                </p>
+                <pre class="code-block">
+                <code>
+                displacy.render(newdoc, style='dep', jupyter=True, options={'distance':60})
+                </code>
+                </pre>
+                <img src="../../static/image/img_5.png" id="image5">
+
+
+
+                  </div>
+
+                  <div class="section-content production">
+                    <h2>Title</h2>
+                  </div>
+
+                  <div class="section-content analysis">
+                    <h2>Title</h2>
+                  </div>
+                  </div>
+                </div>
+            </div>
+
+            <h2 onclick="toggleContent('how-content3')" class="hand-cursor">A Simple Example</h2>
+            <div id="how-content3" class="hidden-content">
+                <p>
+                    After downloading the required language model, you can start using SpaCy in your Python scripts. Here's a
+                    simple example that demonstrates tokenization and part-of-speech tagging:
+                </p>
+                <code>
+                    import spacy
+
+                    # Load the English language model
+                    nlp = spacy.load('en')
+
+                    # Process a text string
+                    doc = nlp("SpaCy is an amazing tool for NLP.")
+
+                    # Accessing tokens and their part-of-speech tags
+                    for token in doc:
+                        print(token.text, token.pos_)
+                </code>
+            </div>
+
+
+            <h2 onclick="toggleContent('how-content4')" class="hand-cursor">Resources and Documentation</h2>
+            <div id="how-content4" class="hidden-content">
+                <p>
+                    SpaCy provides comprehensive documentation and resources to help you get started and learn more about its
+                    capabilities. Here are some useful links:
+                </p>
+                <ul>
+                    <li><a href="https://spacy.io" target="_blank">Official SpaCy website</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="try-area" id="try">
+        <div class="text-part">
+            <h1>Try by yourself</h1>
+            <div id="exercise">
+                <p>Instructions: Enter a sentence in the input below. Use SpaCy to analyze the sentence and display the results.</p>
+
+                <textarea id="input-text" placeholder="Enter a sentence..."></textarea>
+                <button id="submit-button">Analyze</button>
+
+                <div id="results"></div>
+            </div>
+        </div>
+    </div>
+    <div class="play-area" id="play">
+        <div class="text-part">
+            <h1>Play a game</h1>
+            <h2></h2>
+            <button id="play-button">PLAY</button>
+        </div>
+
+    </div>
+
+
+
+
+    <div id="container">
+        <h2>Additional Content</h2>
+        <p>
+            Move your mouse to this area to reveal additional content about SpaCy.
+        </p>
+        <div id="hidden-content">
+            <p>This is the hidden content that appears when you hover over the "Additional Content" section.</p>
+            <p>You can add more information or any other elements here.</p>
+        </div>
+    </div>
+    <script>
+      $(".services").owlCarousel({
+        margin:20,
+        loop:true,
+        autoplay:true,
+        autoplayTimeout:2000,
+        autoplayHoverPause:true,
+        responsive:{
+          0:{
+            items:1
+          },
+          600:{
+            items:2
+          },
+          1000:{
+            items:3
+          }
+        }
+      });
+
+      var characterA = document.getElementById('character-A');
+        var speechBubbleA = document.getElementById('speech-bubble-A');
+        var textA = "Hello, Do you know what is spacy?";
+
+        characterA.addEventListener('mouseenter', function () {
+            speechBubbleA.textContent = textA;
+            speechBubbleA.style.display = 'block';
+        });
+
+        characterA.addEventListener('mouseleave', function () {
+            speechBubbleA.style.display = 'none';
+        });
+        var characterB = document.getElementById('character-B');
+        var speechBubbleB = document.getElementById('speech-bubble-B');
+        var textB = "OOPS, we don't know!";
+
+        characterB.addEventListener('mouseenter', function () {
+            speechBubbleB.textContent = textB;
+            speechBubbleB.style.display = 'block';
+        });
+
+        characterB.addEventListener('mouseleave', function () {
+            speechBubbleB.style.display = 'none';
+        });
+        var characterC = document.getElementById('character-C');
+        var speechBubbleC = document.getElementById('speech-bubble-C');
+        var textC = "But we can learn!";
+
+        characterC.addEventListener('mouseenter', function () {
+            speechBubbleC.textContent = textC;
+            speechBubbleC.style.display = 'block';
+        });
+
+        characterC.addEventListener('mouseleave', function () {
+            speechBubbleC.style.display = 'none';
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        // var container = document.getElementById('container');
+        // var hiddenContent = document.getElementById('hidden-content');
+        //
+        // container.addEventListener('mousemove', function (event) {
+        //     var rect = container.getBoundingClientRect();
+        //     var xPos = event.clientX - rect.left;
+        //     var yPos = event.clientY - rect.top;
+        //
+        //     if (xPos >= 0 && xPos <= rect.width && yPos >= 0 && yPos <= rect.height) {
+        //         hiddenContent.style.display = 'block';
+        //     } else {
+        //         hiddenContent.style.display = 'none';
+        //     }
+        // });
+
+    //   test effect
+        var submitButton = document.getElementById('submit-button');
+        var resultsDiv = document.getElementById('results');
+
+        submitButton.addEventListener('click', function () {
+            var inputText = document.getElementById('input-text').value;
+
+            // Clear previous results
+            resultsDiv.innerHTML = '';
+
+            // Process the text with SpaCy (replace this with your own SpaCy code)
+            // Here, we're simply splitting the text into words
+            var words = inputText.split(' ');
+
+            // Display the results
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i];
+                var wordSpan = document.createElement('span');
+                wordSpan.textContent = word + ' ';
+                resultsDiv.appendChild(wordSpan);
+            }
+        });
+
+    //    hidden content
+        function toggleContent(id) {
+          var content = document.getElementById(id);
+          if (content.style.display === "none") {
+            content.style.display = "block";
+          } else {
+            content.style.display = "none";
+          }
+    }
+
+    //progress bar
+        $(".step").click( function() {
+      $(this).addClass("active").prevAll().addClass("active");
+      $(this).nextAll().removeClass("active");
+    });
+    $(".step01").click( function() {
+      $("#line-progress").css("width", "3%");
+      $(".discovery").addClass("active").siblings().removeClass("active");
+    });
+    $(".step02").click( function() {
+      $("#line-progress").css("width", "25%");
+      $(".strategy").addClass("active").siblings().removeClass("active");
+    });
+    $(".step03").click( function() {
+      $("#line-progress").css("width", "50%");
+      $(".creative").addClass("active").siblings().removeClass("active");
+    });
+    $(".step04").click( function() {
+      $("#line-progress").css("width", "75%");
+      $(".production").addClass("active").siblings().removeClass("active");
+    });
+    $(".step05").click( function() {
+      $("#line-progress").css("width", "100%");
+      $(".analysis").addClass("active").siblings().removeClass("active");
+    });
+    </script>
+</body>
+</html>

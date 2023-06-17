@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static '../../static/bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+<div class="container">
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Phone</th>
+        <th>City</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in data %}
+    <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.phone }}</td>
+        <td>{{ item.city }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<script src="{% static '../../static/js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static '../../static/bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+
+</div>
+</body>
+</html>
