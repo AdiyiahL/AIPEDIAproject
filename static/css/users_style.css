@@ -2,7 +2,14 @@ body{
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: #859fc2;
+  /* 渐变背景 */
+  background: linear-gradient(200deg, #d3cbe8,#e3eeff);
+  /* 100%窗口高度 */
+  height: 100vh;
+    /* 弹性布局 水平+垂直居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
 }
 .box{
@@ -12,8 +19,11 @@ body{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background: #444c56;
+  background: #b7c9e5;
   text-align: center;
+  border-radius: 5px;
+  /* 阴影 */
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
 }
 .box h1{
   color: white;
@@ -26,7 +36,7 @@ body{
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #3498db;
+  border: 1px solid #b8d4f5;
   padding: 14px 10px;
   width: 200px;
   outline: none;
@@ -36,15 +46,15 @@ body{
 }
 .box input[type = "text"]:focus,.box input[type = "password"]:focus{
   width: 280px;
-  border-color: #2ecc71;
+  border-color: #4b6c4c;
 }
-.box input[type = "submit"]{
+.box input[type = "submit"],.button1{
   border:0;
   background: none;
   display: block;
   margin: 20px auto;
   text-align: center;
-  border: 2px solid #2ecc71;
+  border: 2px solid #a4bee5;
   padding: 14px 40px;
   outline: none;
   color: white;
@@ -52,6 +62,11 @@ body{
   transition: 0.25s;
   cursor: pointer;
 }
-.box input[type = "submit"]:hover{
-  background: #2ecc71;
+.box input[type = "submit"],.button1:hover{
+  background: #a4bee5;
+}
+
+.button1{
+  color: #414349;
+  font-family: Algerian;
 }

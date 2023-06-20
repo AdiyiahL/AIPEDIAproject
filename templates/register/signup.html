@@ -4,21 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static '../../static/css/users_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/users_style.css' %}">
 </head>
 <body>
- <form class="box" action="{% url 'users:signup' %}" method="post">
+ <form class="box" action="{% url 'users:signup' %}" method="post" novalidate>
      {% csrf_token %}
   <h1>SignUp</h1>
-     <input type="text" name="user" placeholder="Username" >
-     <input type="text" name="email" placeholder="Email" >
-     <input type="text" name="mobile" placeholder="Mobile Phone" >
-     <input type="text" name="age" placeholder="Age" >
-     <input type="password" name="pwd" placeholder="Password" >
-     <input type="password" name="pwdconfirm" placeholder="Password Confirm" >
+     {{ form.username }}
+     <span style="color: red; font-size: 1px">{{ form.username.errors.0 }}</span>
+     {{ form.email }}
+     <span style="color: red; font-size: 1px">{{ form.email.errors.0 }}</span>
+     {{ form.mobile }}
+     <span style="color: red; font-size: 1px">{{ form.mobile.errors.0 }}</span>
+     {{ form.age }}
+     <span style="color: red; font-size: 1px">{{ form.age.errors.0 }}</span>
+     {{ form.password }}
+     <span style="color: red; font-size: 1px">{{ form.password.errors.0 }}</span>
+     {{ form.password_confirm }}
+     <span style="color: red; font-size: 1px">{{ form.password_confirm.errors.0 }}</span>
   <input type="submit" name="" value="Signup">
-     <span style="color: red;">{{ error }}</span>
-<div class="ui message">
+     <span style="color: red;font-size: 3px">{{ error }}</span>
+<div class="ui message" style="font-size: 1px">
                 have an account？<a href="{% url 'users:login' %}">login</a>
 </div>
 </form>

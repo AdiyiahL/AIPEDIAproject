@@ -3,38 +3,80 @@
 from django.shortcuts import *
 from django.views import generic
 from users import models
+from django import forms
+from .forms import loginForm, signUpForm
+from django.core.validators import RegexValidator
 
 from django.shortcuts import HttpResponse
 # Create your views here.
 
 
 def login(request):
-    if request.method == 'POST':
-        username = request.POST.get('user') #与html中表单中的name对应
-        password = request.POST.get('pwd')
-        #校验
-        user_info = models.UserInfo.objects.filter(name=username,pwd=password).first()
-        if user_info:
-            request.session['user_session'] = {'id': user_info.id, 'name': user_info.name}
+    if request.method=="GET":
+        form = loginForm()
+        print(form.errors)
+        return render(request, 'register/login.html', {'form': form})
+    form = loginForm(data=request.POST)
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user_object = models.UserInfo.objects.filter(name=username,pwd=password).first()
+        print(user_object)
+        if user_object:
+            request.session['user_session'] = {'id': user_object.id, 'name': user_object.name}
             return redirect("/home/")
         else:
-            return render(request, 'register/login.html', {"error": "username or password error"})
+            return render(request, 'register/login.html', {"form":form,"error": "username or password error"})
     else:
-        return render(request, 'register/login.html')
+        # print(form.errors)
+        return render(request, 'register/login.html', {'form': form})
+
+    # if request.method == 'POST':
+    #     username = request.POST.get('user') #与html中表单中的name对应
+    #     password = request.POST.get('pwd')
+    #     #校验
+    #     user_info = models.UserInfo.objects.filter(name=username,pwd=password).first()
+    #     if user_info:
+    #         request.session['user_session'] = {'id': user_info.id, 'name': user_info.name}
+    #         return redirect("/home/")
+    #     else:
+    #         return render(request, 'register/login.html', {"error": "username or password error"})
+    # else:
+    #     return render(request, 'register/login.html')
 
 def signup(request):
     if request.method == 'POST':
-        name = request.POST.get('user')
-        email = request.POST.get('email')
-        mobile = request.POST.get('mobile')
-        age = request.POST.get('age')
-        pwd = request.POST.get('pwd')
-        pwdconf = request.POST.get('pwdconfirm')
-        if pwdconf == pwd:
-            models.UserInfo.objects.create(name=name,email=email,mobile=mobile,age=age,pwd=pwd,subscribe=False)
+        form = signUpForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+            mobile = form.cleaned_data.get('mobile')
+            age = form.cleaned_data.get('age')
+            pwd = form.cleaned_data.get('password')
+            pwdconf = form.cleaned_data.get('password_confirm')
+            filterResult_username = models.UserInfo.objects.filter(name=name).first()
+            filterResult_email = models.UserInfo.objects.filter(email=email).first()
+            if filterResult_username:
+                return render(request,'register/signup.html',{"form":form,"error": "Username exists!"})
+            if filterResult_email:
+                return render(request,'register/signup.html',{"form":form,"error": "Email exists!"})
+            if pwdconf == pwd:
+                user = models.UserInfo.objects.create(name=name,email=email,mobile=mobile,age=age,pwd=pwd,subscribe=False)
+                user.save()
+                return redirect('/users/success_signup/')
+            else:
+                return render(request, 'register/signup.html', {"form":form,"error": "passwords do not match!"})
         else:
-            return render(request, 'register/signup.html', {"error": "passwords do not match!"})
-    return render(request, 'register/signup.html')
+            # print(form.errors)
+            return render(request, 'register/signup.html', {'form': form})
+    form = signUpForm()
+    return render(request, 'register/signup.html', {'form': form})
+
+def login_signup(request):
+    return render(request, "register/login_signup.html")
+
+def success_signup(request):
+    return render(request,"register/success_signup.html")
 
 def index(request):
     queryset = [

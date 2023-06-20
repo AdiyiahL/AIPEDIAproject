@@ -7,16 +7,24 @@
     <link rel="stylesheet" href="{% static 'css/users_style.css' %}">
 </head>
 <body>
- <form class="box" action="{% url 'users:login' %}" method="post">
+ <form class="box" action="{% url 'users:login' %}" method="post" novalidate>
      {% csrf_token %}
   <h1>Login</h1>
-  <input type="text" name="user" placeholder="Username" >
-  <input type="password" name="pwd" placeholder="Password" >
+     <div>
+         {{ form.username }}
+         <span style="color: red; font-size: 1px">{{ form.username.errors.0 }}</span>
+     </div>
+     <div>
+         {{ form.password }}
+        <span style="color: red;font-size: 1px">{{ form.password.errors.0}}</span>
+     </div>
+
   <input type="submit" name="" value="Login">
-     <span style="color: red;">{{ error }}</span>
-     <div class="ui message">
+
+     <div class="ui message" style="font-size: 1px">
                 have no account？<a href="{% url 'users:signup' %}">sign up</a>
 </div>
+     <span style="color: red">{{ error }}</span>
 </form>
 
 </body>
