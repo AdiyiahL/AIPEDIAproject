@@ -1,6 +1,193 @@
-{% extends 'base/base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home_stairs.css' %}">
+    <link rel="stylesheet" href="glide.core.min.css">
+    <link rel="stylesheet" href="glide.theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/content_list_style.css' %}">
 
-{% block content %}
-<h1>home page</h1>
-{% endblock %}
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header " >
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand " style="font-family: Algerian" href="/home/">AIPEDIA</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/content/content_list/">study <span class="sr-only">(current)</span></a></li>
+        <li><a href="/content/play_list/">play</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ user_session.name }} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div>
+
+    <div class="stairs">
+        <div class="base_stair"></div>
+        <div class="step" style="--j:1";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:2";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:3";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:4";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:5";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:6";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:7";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step" style="--j:8";>
+            <i></i>
+            <i></i>
+        </div>
+
+    </div>
+
+
+        <div class="stairs1">
+        <div class="base_stair1"></div>
+        <div class="step1" style="--j:1";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step1" style="--j:2";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step1" style="--j:3";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step1" style="--j:4";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step1" style="--j:5";>
+            <i></i>
+            <i></i>
+        </div>
+        <div class="step1" style="--j:6";>
+            <i></i>
+            <i></i>
+        </div>
+
+    </div>
+
+{#    <div class="button_area">#}
+        <div class="button_left">
+            <a href="/content/content_list" class="button">
+                <div class="button__content">
+                   <span class="button__text">Study</span>
+
+                   <div class="button__reflection-1"></div>
+                   <div class="button__reflection-2"></div>
+                </div>
+
+                <img src="{% static 'image/homepage_button_img/star.png' %}" alt="" class="button__star-1">
+                <img src="{% static 'image/homepage_button_img/star.png' %}" alt="" class="button__star-2">
+                <img src="{% static 'image/homepage_button_img/circle.png' %}" alt="" class="button__circle-1">
+                <img src="{% static 'image/homepage_button_img/circle.png' %}" alt="" class="button__circle-2">
+                <img src="{% static 'image/homepage_button_img/diamond.png' %}" alt="" class="button__diamond">
+                <img src="{% static 'image/homepage_button_img/triangle.png' %}" alt="" class="button__triangle">
+
+                <div class="button__shadow"></div>
+             </a>
+        </div>
+        <div class="button_right">
+            <a href="/content/play_list" class="button">
+                <div class="button__content" class="button_div_right">
+                   <span class="button__text">Play</span>
+
+                   <div class="button__reflection-1"></div>
+                   <div class="button__reflection-2"></div>
+                </div>
+
+                <img src="{% static 'image/homepage_button_img/star.png' %}" alt="" class="button__star-1">
+                <img src="{% static 'image/homepage_button_img/star.png' %}" alt="" class="button__star-2">
+                <img src="{% static 'image/homepage_button_img/circle.png' %}" alt="" class="button__circle-1">
+                <img src="{% static 'image/homepage_button_img/circle.png' %}" alt="" class="button__circle-2">
+                <img src="{% static 'image/homepage_button_img/diamond.png' %}" alt="" class="button__diamond">
+                <img src="{% static 'image/homepage_button_img/triangle.png' %}" alt="" class="button__triangle">
+
+                <div class="button__shadow"></div>
+             </a>
+        </div>
+{#    </div>#}
+
+
+
+
+</div>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+</body>
+</html>
+
+
+

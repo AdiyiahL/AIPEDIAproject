@@ -2,42 +2,85 @@
 {% load static %}
 
  {% block content %}
+     <div >
 <h2>add content</h2>
-<form method="post" action="/content/add/content/">
+<form method="post" action="/content/add/content/" novalidate>
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">TITLE</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="TITLE" name="title">
+      {{ form.title }}
+{#    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="TITLE" name="title">#}
   </div>
 
-  <div class="form-group">
-    <label for="exampleInputPassword1">LEVEL</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="level">
-  </div>
 
-    <div class="form-group">
+    <div id="app" class="form-group">
         <label for="exampleInputPassword1">What is it?</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="what">
+        {{ form.what_area }}
+{#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="what">#}
+{#        动态界面#}
+{#        <lable> number of key</lable>#}
+{#        <h2>Key <strong>Features</strong> of SpaCy</h2>#}
+{#        <select id="selectkey" class="form-control" name="key_num" v-model="key_num">#}
+{#          <option value="1">1</option>#}
+{#          <option value="2">2</option>#}
+{#          <option value="3">3</option>#}
+{#          <option value="4">4</option>#}
+{#          <option value="5">5</option>#}
+{#        </select>#}
+{#        <div>#}
+{#        {% verbatim %}{{ key_num }}#}
+{#                    <ul>#}
+{#                        <li v-for = "i in key_num">一个循环</li>#}
+{#                    </ul>#}
+{#        {% endverbatim %}#}
+{#        </div>#}
+
     </div>
 
     <div class="form-group">
         <label for="exampleInputPassword1">How to use it?</label>
-    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">
+        {{ form.how_area }}
+{#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">#}
+    </div>
+
+        <div class="form-group">
+        <label for="exampleInputPassword1">An Example</label>
+        {{ form.example }}
+{#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">#}
+    </div>
+
+        <div class="form-group">
+        <label for="exampleInputPassword1">Here is the source</label>
+        {{ form.source }}
+{#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">#}
+    </div>
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Try it?</label>
+        {{ form.try_area }}
+{#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">#}
     </div>
 
 
-{#  <div class="form-group">#}
-{#    <label for="exampleInputFile">File input</label>#}
-{#    <input type="file" id="exampleInputFile">#}
-{#    <p class="help-block">Example block-level help text here.</p>#}
-{#  </div>#}
   <div class="checkbox">
     <label>
-      <input type="checkbox"> Check me out
+      <input type="checkbox"> I agree
     </label>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+     </div>
+{% endblock %}
+
+{% block js %}
+<script>
+var app = new Vue({
+    el:'#app',
+    data:{
+        key_num :5
+    },
+
+})
+
+</script>
 {% endblock %}

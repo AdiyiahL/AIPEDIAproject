@@ -3,9 +3,6 @@
 
 {% block content %}
 <div class="container">
-<a href="/content/add/content/">
-   <button>add</button>
-</a>
 
 <table class="table table-bordered">
     <thead>
@@ -25,15 +22,13 @@
         </td>
         <td>{{ item.level }}</td>
         <td>
-            <a href="/delete/contentlevel/?id={{ item.id }}">Delete</a>
-            <a href="/edit/contentlevel/?id={{ item.id }}">Edit</a>
+            <a href="/content/delete/contentlevel/?id={{ item.id }}">Delete</a>
+            <a href="/content/edit/contentlevel/?id={{ item.id }}">Edit</a>
         </td>
     </tr>
     {% endfor %}
     </tbody>
 </table>
-<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-<script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
 
 </div>
 {% endblock %}

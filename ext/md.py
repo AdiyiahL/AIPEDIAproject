@@ -5,6 +5,10 @@ class MyMiddleware(MiddlewareMixin):
     def process_request(self, request):
         if request.path_info=="/users/login/":
             return
+        if request.path_info=="/home/":
+            return
+        if request.path_info=="/users/signup/":
+            return
 
         #获取user_session
         user_session = request.session.get('user_session')

@@ -23,13 +23,8 @@ from content.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/', include('users.urls')),
+    path('users/', include('users.urls',namespace='users')),
     path('index/',index),
-    path('content/',include('content.urls')),
+    path('content/',include('content.urls',namespace='content')),
     path('home/',home),
-    path('contentlevel/',contentlevel),
-    path('add/content/', addContent),
-    path('delete/contentlevel/',delete_contentlevel),
-    path('edit/contentlevel/', edit_contentlevel),
-    path('Spacy/', spacy)
 ]

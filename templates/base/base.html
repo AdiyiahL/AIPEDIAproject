@@ -6,6 +6,12 @@
     <title>Title</title>
 {#    <link rel="stylesheet" href="{% static 'css/content_style.css' %}">#}
     <link rel="stylesheet" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
+    <script src="{%static 'js/vue.js' %}"></script>
+    <script src="glide.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="glide.core.min.css">
+    <link rel="stylesheet" href="glide.theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/content_list_style.css' %}">
 
 {#    <link rel = "stylesheet" href="{% static 'content_style.css' %}">#}
     {% block css %}{% endblock %}
@@ -21,14 +27,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand " style="font-family: Algerian" href="#">AIPEDIA</a>
+      <a class="navbar-brand " style="font-family: Algerian" href="/home/">AIPEDIA</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/contentlevel/">study <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">play</a></li>
+        <li class="active"><a href="/content/content_list/">study <span class="sr-only">(current)</span></a></li>
+        <li><a href="/content/play_list/">play</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -68,8 +74,10 @@
 <div class="container">
     {% block content %}{% endblock %}
 </div>
+
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
+
 {% block js %}{% endblock %}
 </body>
 </html>
