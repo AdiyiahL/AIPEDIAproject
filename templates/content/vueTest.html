@@ -1,0 +1,30 @@
+{#{% load static %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {% for item in data_list %}
+        <li>{{ item }}</li>
+    {% endfor %}
+    {% verbatim %}
+    this is {{key_num}}
+    {% endverbatim %}
+</div>
+
+<script>
+    var app = new Vue({
+    el:'#app',
+    data:{
+        key_num :5,
+    },
+    methods:{
+    }
+})
+</script>
+</body>
+</html>
