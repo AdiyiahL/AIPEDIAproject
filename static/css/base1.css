@@ -21,7 +21,7 @@ nav_catalog{
     position: fixed;
     width: 250px;
     height: 650px;
-    top: 51px;
+    top: 0px;
     background-color: #959dd2;
 }
 .menus{
