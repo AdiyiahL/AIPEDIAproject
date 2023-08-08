@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.shortcuts import *
 from django.views import generic
 from users import models
+from content import models as models_content
 from django import forms
 from .forms import loginForm, signUpForm
 from django.core.validators import RegexValidator
@@ -32,18 +33,6 @@ def login(request):
         # print(form.errors)
         return render(request, 'register/login.html', {'form': form})
 
-    # if request.method == 'POST':
-    #     username = request.POST.get('user') #与html中表单中的name对应
-    #     password = request.POST.get('pwd')
-    #     #校验
-    #     user_info = models.UserInfo.objects.filter(name=username,pwd=password).first()
-    #     if user_info:
-    #         request.session['user_session'] = {'id': user_info.id, 'name': user_info.name}
-    #         return redirect("/home/")
-    #     else:
-    #         return render(request, 'register/login.html', {"error": "username or password error"})
-    # else:
-    #     return render(request, 'register/login.html')
 
 def signup(request):
     if request.method == 'POST':
@@ -72,6 +61,14 @@ def signup(request):
             return render(request, 'register/signup.html', {'form': form})
     form = signUpForm()
     return render(request, 'register/signup.html', {'form': form})
+
+def profile(request):
+    if request.method == 'GET':
+        user_obj_id = request.user_session["id"]
+        user_obj = models.UserInfo.objects.filter(id=user_obj_id).first()
+        user_content = models_content.NewContent.objects.filter(userId_id = user_obj_id)
+        print(user_content)
+        return render(request, 'register/profile.html', {'user_obj': user_obj,'user_content': user_content})
 
 def logout(request):
     auth_logout(request)

@@ -153,6 +153,14 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR,'static'),
 )
 
+# STATIC_URL = '/media/'
+#
+# #全局变量名，赋值一个元组
+# STATICFILES_DIRS = (
+#     #static这个名字和项目下新建的目录static对应，和引用无关
+#     os.path.join(BASE_DIR,'media'),
+# )
+
 # setting captcha
 
 # CAPTCHA_IMAGE_SIZE = (80,45)

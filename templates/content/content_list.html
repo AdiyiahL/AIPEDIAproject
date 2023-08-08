@@ -21,7 +21,7 @@
 {% for item in queryset %}
         <div class="box">
             <div class="images">
-                <img src="/media/user_images/{{ item.image_name }}" alt="{{ item.image_name }}">
+                <img src="/media/{{ item.image_data }}" alt="{{ item.image_name }}">
             </div>
             <div class="content">
                 <a href="/content/all_content/?id={{ item.id }}">

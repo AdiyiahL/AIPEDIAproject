@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+    <div style="margin: 50px">
+    <label style="font-size: larger">ID:  {{ user_obj.id }}</label> <p style="font-size: larger"></p>
+    <label style="font-size: larger">name:  {{ user_obj.name }}</label> <p style="font-size: larger"></p>
+    <label style="font-size: larger">email:  {{ user_obj.email }}</label> <p style="font-size: larger"></p>
+    </div>
+    <h2>My Sharing</h2>
+{% for item in user_content %}
+        <div class="box">
+{#            <div class="images">#}
+{#                <img src="/media/{{ item.image_data }}" alt="{{ item.image_name }}">#}
+{#            </div>#}
+            <div class="content">
+                <a href="/content/all_content/?id={{ item.id }}">
+                <h2>{{item.title}}</h2>
+                </a>
+            </div>
+        </div>
+{% endfor %}
+{% endblock %}
