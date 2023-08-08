@@ -1,14 +1,14 @@
 .content_right{
     position: absolute;
     display:inline-block;
-    left: 230px;
-    width: 500px;
+    left: 260px;
+    /*width: 500px;*/
 }
 
 .catalog{
     position: absolute;
     left: 0px;
-    width: 240px;
+    width: 260px;
     height: 100%;
     display:inline-block;
 }
@@ -19,7 +19,7 @@ ul{
 nav_catalog{
     /* 固定定位 */
     position: fixed;
-    width: 250px;
+    width: 260px;
     height: 650px;
     top: 51px;
     background-color: #959dd2;
@@ -47,7 +47,8 @@ nav_catalog{
     margin-left: 5px;
 }
 .li ul{
-    width: 0;
+    /*gaidong*/
+    width: 250px;
     height: 550px;
     padding: 50px 0;
     background-color: #7477ab;
