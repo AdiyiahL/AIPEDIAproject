@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
     <link rel="stylesheet" href="{% static 'css/home_stairs.css' %}">
-    <link rel="stylesheet" href="glide.core.min.css">
-    <link rel="stylesheet" href="glide.theme.min.css">
+{#    <link rel="stylesheet" href="glide.core.min.css">#}
+{#    <link rel="stylesheet" href="glide.theme.min.css">#}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/content_list_style.css' %}">
 
@@ -32,20 +32,21 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/content/content_list/">study <span class="sr-only">(current)</span></a></li>
+        <li class="active"><a href="/content/courses_list/">study <span class="sr-only">(current)</span></a></li>
+        <li><a href="/content/content_list/">share</a></li>
         <li><a href="/content/play_list/">play</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+{#        <li class="dropdown">#}
+{#          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>#}
+{#          <ul class="dropdown-menu">#}
+{#            <li><a href="#">Action</a></li>#}
+{#            <li><a href="#">Another action</a></li>#}
+{#            <li><a href="#">Something else here</a></li>#}
+{#            <li role="separator" class="divider"></li>#}
+{#            <li><a href="#">Separated link</a></li>#}
+{#            <li role="separator" class="divider"></li>#}
+{#            <li><a href="#">One more separated link</a></li>#}
+{#          </ul>#}
+{#        </li>#}
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -161,9 +162,9 @@
              </a>
         </div>
         <div class="button_right">
-            <a href="/content/play_list" class="button">
+            <a href="/content/content_list" class="button">
                 <div class="button__content" class="button_div_right">
-                   <span class="button__text">Play</span>
+                   <span class="button__text">Share</span>
 
                    <div class="button__reflection-1"></div>
                    <div class="button__reflection-2"></div>
