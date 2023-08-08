@@ -65,9 +65,11 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'django.template.context_processors.media',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -76,8 +78,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'AIPEDIAproject.wsgi.application'
 
 # 文件上传路径
-MEDIA_ROOT = os.path.join(BASE_DIR, 'upload').replace('\\', '/')
-MEDIA_URL = '/upload/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'upload').replace('\\', '/')
+# MEDIA_URL = '/upload/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 
 # 上传视频最大尺寸
 CHUNKED_UPLOAD_MAX_BYTES = 10000000000

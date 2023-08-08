@@ -68,6 +68,17 @@ class NewContentForm(forms.Form):
         },
         widget=forms.Textarea(attrs={"placeholder": "please input something","class":"form-control", "id":"exampleInputEmail1", "name":"try_area"})
     )
+    try_area = forms.CharField(
+        min_length=10, max_length=3000,
+        error_messages={
+            'min_length': '',
+            'max_length': 'cannot be longer than 1000 characters',
+            'required': 'required',
+        },
+        widget=forms.Textarea(
+            attrs={"placeholder": "please input something", "class": "form-control", "id": "exampleInputEmail1",
+                   "name": "try_area"})
+    )
 
 
 class NewCoursesForm(forms.Form):

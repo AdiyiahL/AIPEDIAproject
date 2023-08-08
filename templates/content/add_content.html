@@ -4,7 +4,7 @@
  {% block content %}
      <div >
 <h2>add content</h2>
-<form method="post" action="/content/add/content/" novalidate>
+<form  action="/content/add/content/" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
   <div class="form-group">
     <label for="exampleInputEmail1">TITLE</label>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="form-group">
-        <label for="exampleInputPassword1">Try it?</label>
+        <label for="exampleInputPassword1">Do you want to Try it in the future? What is your idea about it?</label>
         {{ form.try_area }}
 {#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">#}
     </div>
@@ -73,6 +73,11 @@
       <input type="checkbox"> I agree
     </label>
   </div>
+
+    <div>
+        <input type="file" id="fileInput1" name="image1">
+    </div>
+
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
      </div>

@@ -17,6 +17,10 @@ class NewContent(models.Model):
     source = models.CharField(verbose_name="source_area", max_length=2000,null=True,blank=True)
     try_area = models.CharField(verbose_name="try_area", max_length=3000)
     userId = models.ForeignKey(verbose_name="author", to=users.models.UserInfo,on_delete=models.CASCADE)
+    # 上传图片封面
+    image_name = models.CharField(max_length=200, null=False)
+    image_data = models.ImageField(upload_to='user_images', default='user_image.jpg')
+
 
 class NewCourses(models.Model):
     title = models.CharField(verbose_name="title", max_length=200)

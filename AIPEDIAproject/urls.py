@@ -27,6 +27,7 @@ urlpatterns = [
     path('index/',index),
     path('content/',include('content.urls',namespace='content')),
     path('home/',home),
+
     # 验证码尝试
     # path('captcha/', include('captcha.urls')),
 ]

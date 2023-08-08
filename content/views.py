@@ -5,6 +5,7 @@ from content import models
 from .forms import NewContentForm, NewCoursesForm
 # import pwden
 from django.http import JsonResponse
+from django.core.files.base import ContentFile
 import re
 
 # Create your views here.
@@ -31,7 +32,8 @@ def addContent(request):
         form = NewContentForm()
         return render(request, "content/add_content.html", {'form': form})
     else:
-        form = NewContentForm(request.POST)
+        form = NewContentForm(request.POST, request.FILES)
+
         if form.is_valid():
             title = form.cleaned_data.get('title')
             what_area = form.cleaned_data.get('what_area')
@@ -39,9 +41,15 @@ def addContent(request):
             example = form.cleaned_data.get('example')
             source = form.cleaned_data.get('source')
             try_area = form.cleaned_data.get('try_area')
-            print("11111111")
+            image_data = request.FILES['image1'],
+            print(image_data)
+            image_name = request.FILES['image1'].name,
+            print(image_name)
             user_obj_id = request.user_session["id"]
-            models.NewContent.objects.create(title=title,what_area=what_area,how_area=how_area,example=example,source=source,try_area=try_area,userId_id=user_obj_id)
+            new = models.NewContent.objects.create(
+                title=title,what_area=what_area,how_area=how_area,
+                example=example,source=source,try_area=try_area,
+                image_data=image_data,image_name=image_name,userId_id=user_obj_id)
             print("save success")
             return redirect("/content/content_list")
         else:
