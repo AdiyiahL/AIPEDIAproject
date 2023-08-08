@@ -4,7 +4,9 @@
     left: 230px;
     width: 500px;
 }
-
+.navbar{
+    z-index: 999;
+}
 .catalog{
     position: absolute;
     left: 0px;
