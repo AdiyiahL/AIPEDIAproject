@@ -23,6 +23,7 @@ nav_catalog{
     height: 650px;
     top: 0px;
     background-color: #959dd2;
+    z-index: 9;
 }
 .menus{
     margin: 50px 0;

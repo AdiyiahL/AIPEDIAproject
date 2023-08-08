@@ -7,6 +7,11 @@
         body {
             background-color: rgb(230, 235, 248);
         }
+
+ .navbar{
+     z-index: 999999;
+ }
+
 .button1{
   color: #414349;
   font-family: Algerian;
