@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+ {% block content %}
+     <div xmlns="http://www.w3.org/1999/html">
+<h2>add courses</h2>
+<form method="post" action="/content/add/courses/" novalidate>
+    {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">TITLE</label>
+      {{ form.title }}
+{#    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="TITLE" name="title">#}
+  </div>
+
+    <div class="form-group">
+    <label for="exampleInputEmail1">level1</label>
+        <select name="level1_name" id="level1">
+            <option value ="select">select</option>
+    {% for level1 in level1_list %}
+        <option value ={{ level1.level1 }}>{{ level1.level1 }}</option>
+    {% endfor %}
+        </select>
+    </br>
+    <label for="exampleInputEmail1">level2</label>
+    <select name="sel_level2" id="level2">
+    </select>
+{#    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="TITLE" name="title">#}
+  </div>
+
+
+    <div id="app" class="form-group">
+        <label for="exampleInputPassword1">What is it?</label>
+        {{ form.contents }}
+
+    </div>
+    <div id="app" class="form-group">
+        {{ form.contents1 }}
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="exampleInputPassword1">Here is the source</label>
+        {{ form.source }}
+{#    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="LEVEL" name="how">#}
+    </div>
+
+
+  <button type="submit" class="btn btn-default">Submit</button>
+
+{% block js %}
+<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script language="JavaScript">
+    $("#level1").change(function() {
+      var level1 = $(this).val();
+{#alert("welcome");#}
+      $.ajax({
+        url: '/content/getlevel2/',
+
+          data:{"level1_name":$(this).val()},
+     type: 'GET',
+        dataType: 'json',
+        success: function (data) {
+            var content='';
+            $.each(data, function(i, item){
+                  content+='<option value='+item.level2+'>'+item.level2+'</option>'
+                });
+            $('#level2').html(content)
+        },
+
+      });
+    });
+
+
+</script>
+
+</form>
+     </div>
+{% endblock %}
+
+{% endblock %}

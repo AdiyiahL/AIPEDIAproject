@@ -8,3 +8,4 @@ class UserInfo(models.Model):
     email = models.CharField(verbose_name="email", max_length=32)
     age = models.IntegerField(verbose_name="age")
     subscribe = models.BooleanField(default=False)
+    # gender = models.IntegerField(verbose_name="gender", choices=[(1,"male"),(2,"famale")])

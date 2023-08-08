@@ -2,17 +2,15 @@ from django.shortcuts import render
 from django.shortcuts import *
 from django.views import generic
 from content import models
-from .forms import NewContentForm
+from .forms import NewContentForm, NewCoursesForm
+# import pwden
+from django.http import JsonResponse
 import re
 
 # Create your views here.
 def  contentlevel(request):
     #add
     # models.ContentLevel.objects.create(title="PyTorch", level=8)
-    # models.ContentLevel.objects.create(title="Python", level=2)
-    # models.ContentLevel.objects.create(title="Math", level=3)
-    # models.ContentLevel.objects.create(title="Spacy", level=5)
-
     #query
     queryset = models.ContentLevel.objects.all().order_by("id")
     # for obj in queryset:
@@ -50,6 +48,43 @@ def addContent(request):
             print(form.errors)
             return render(request, 'content/add_content.html', {'form': form})
 
+def addCourses(request):
+    #add new content
+    if request.method == "GET":
+        form = NewCoursesForm()
+        level1_list = models.level_lable.objects.all().values("level1").distinct()
+        print(level1_list)
+        return render(request, "content/add_courses.html", {'form': form, 'level1_list': level1_list})
+    else:
+        form = NewCoursesForm(request.POST)
+        print(request.POST)
+        if form.is_valid():
+            print(request.POST)
+            title = form.cleaned_data.get('title')
+            contents = form.cleaned_data.get('contents')
+            contents1 = form.cleaned_data.get('contents1')
+            source = form.cleaned_data.get('source')
+            level1 = request.POST.get('level1_name')
+            level2 = request.POST.get('sel_level2')
+            print("11111111")
+            user_obj_id = request.user_session["id"]
+            models.NewCourses.objects.create(title=title,level1 = level1, level2=level2,contents=contents,contents1=contents1,source=source)
+            print("save success")
+            return redirect("/content/content_list")
+        else:
+            print(form.errors)
+            return render(request, 'content/add_courses.html', {'form': form})
+
+def get_level2(request):
+    if request.method =='GET':
+        level1_name = request.GET.get('level1_name')
+        print(level1_name)
+        if level1_name:
+            data = list(models.level_lable.objects.filter(level1=level1_name).values("level2"))
+            print(data)
+            return JsonResponse(data, safe=False)
+
+
 def delete_contentlevel(request):
     id = request.GET.get('id')
     models.ContentLevel.objects.filter(id = id).delete()
@@ -71,30 +106,46 @@ def all_content(request):
     if request.method=="GET":
         content_id = request.GET.get("id")
         content_object = models.NewContent.objects.filter(id=content_id).first()
-        # print(content_object)
-        # ls=[]
-        # path_type = content_object.path_type.replace("'", "").strip("[]").strip().split(',')
-        # path = content_object.path.replace("'", "").strip("[]").strip().split(',')
-        # do_type = content_object.do_type.replace("'", "").strip("[]").strip().split(',')
-        # do = content_object.do.replace("'", "").strip("[]").strip().split(',')
-        # for i in range(len(path_type)):
-        #     my_data = {path_type[i]: path[i], do_type[i]: do[i]}
-        #     ls.append(my_data)
-        # print(ls)
-        # how_area = content_object["how_area"]
-        # steps = how_area.rsplit(";",3) #steps is a list
         steps = [1,2,3,4,5]
         print(content_object)
         return render(request, "content/all_content.html", {"content_object": content_object,"steps":steps})
+
+def all_courses(request):
+    if request.method=="GET":
+        content_id = request.GET.get("id")
+        content_object = models.NewCourses.objects.filter(id=content_id).first()
+        steps = [1,2,3,4,5]
+        print(content_object)
+        return render(request, "content/all_courses.html", {"content_object": content_object})
 
 def content_list(request):
     # query
     queryset = models.NewContent.objects.all().order_by("id")[:4]
     return render(request, 'content/content_list.html', {"queryset": queryset})
+    # return render(request,"content/all_content.html",)
 
-    return render(request,"content/all_content.html",)
+def courses_list(request):
+    # query
+    queryset = models.NewCourses.objects.all().order_by("id")[0:10:3]
+    return render(request, 'content/courses_list.html', {"queryset": queryset})
 
 def all_read_list(request):
+    queryset = models.NewContent.objects.all().order_by("id")
+    return render(request, 'content/all_read_list.html', {"queryset": queryset})
+
+def all_courses_list(request):
+    queryset = models.NewCourses.objects.all().order_by("id")
+    return render(request, 'content/all_courses_list.html', {"queryset": queryset})
+
+def ShowCourses(request):
+    if request.method == "GET":
+        courses_lable = request.GET.get("lable")
+        print(courses_lable)
+        queryset = models.NewCourses.objects.all().filter(level2=courses_lable)
+        print(queryset)
+        return render(request, "content/ShowCourses.html", {"queryset":queryset})
+
+
     queryset = models.NewContent.objects.all().order_by("id")
     return render(request, 'content/all_read_list.html', {"queryset": queryset})
 

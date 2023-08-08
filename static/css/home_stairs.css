@@ -6,7 +6,7 @@
 }
 nav .container-fluid{
     /*background-color:rgba(1,1,1,0.5);*/
-    background: rgba(238, 244, 252, 0.37);
+    /*background: rgba(238, 244, 252, 0.37);*/
 }
 
 .button_area{
@@ -35,7 +35,7 @@ body{
     min-height: 100vh;
 
 
-    background: radial-gradient(#dde1ff, #9ea9ec);
+    background: radial-gradient(#dde1ff, #9ea6e0);
     overflow: hidden;
 
 }
@@ -65,7 +65,7 @@ body{
     left: 60px;
     width: 480px;
     height: 300px;
-    background: #5667b6;
+    background: #6b7cc9;
     transform: rotateX(90deg) translateZ(-150px) scale(1.25);
     filter: blur(20px);
     opacity: 0.5;
@@ -88,7 +88,7 @@ body{
     left: 0;
     width: 60px;
     height: 300px;
-    background:#9ea9ec ;
+    background: #a9b4ee;
     transform: rotateX(90deg) translateZ(150px);
 }
 
@@ -104,7 +104,7 @@ body{
     left: 0;
     width: 300px;
     height: 60px;
-    background: #6475c5;
+    background: #7889d0;
     transform: rotateY(90deg) translateZ(-150px);
 }
 
@@ -113,8 +113,33 @@ body{
     display: block;
     width: 60px;
     height: 100%;
-    background: #5667b6;
+    background: #7283cb;
     transform-style: preserve-3d;
+}
+
+.stairs .Stairs-of-AI{
+    position: absolute;
+    display: block;
+    width: 380px;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform: translateZ(155px) translateX(230px) translateY(115px);
+    color: rgba(255, 255, 255, 0.93);
+    /*font-family: Algerian;*/
+    font-size: 5em;
+    font-weight: 900;
+
+    /*text-shadow: black;*/
+}
+
+.stairs .Stairs-of-AI::before{
+    content: 'Stairs of AI';
+    position: absolute;
+    color: rgba(0,0,0,0);
+    filter:blur(8px);
+    z-index:-1;
+    left: -2px;
+    top: 2px;
 }
 
 .stairs .step i:nth-child(1)
@@ -166,7 +191,7 @@ body{
     left: 30px;
     width: 300px;
     height: 300px;
-    background: #5667b6;
+    background: #6b7cc9;
     transform: rotateX(90deg) translateZ(-150px) scale(1.25);
     filter: blur(20px);
     opacity: 0.5;
@@ -189,7 +214,7 @@ body{
     left: 0px;
     width: 50px;
     height: 270px;
-    background:#9ea9ec ;
+    background:#a9b4ee ;
     transform: rotateX(90deg) translateZ(150px);
 }
 
@@ -205,7 +230,7 @@ body{
     left: 15px;
     width: 270px;
     height: 50px;
-    background: #6475c5;
+    background: #7889d0;
     transform: rotateY(90deg) translateZ(-150px);
 }
 
@@ -214,7 +239,7 @@ body{
     display: block;
     width: 50px;
     height: 100%;
-    background: #5667b6;
+    background: #7283cb;
     transform-style: preserve-3d;
 }
 

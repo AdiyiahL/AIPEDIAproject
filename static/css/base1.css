@@ -1,0 +1,71 @@
+.content_right{
+    position: absolute;
+    display:inline-block;
+    left: 230px;
+    width: 500px;
+}
+
+.catalog{
+    position: absolute;
+    left: 0px;
+    width: 240px;
+    height: 100%;
+    display:inline-block;
+}
+
+ul{
+    list-style: none;
+}
+nav_catalog{
+    /* 固定定位 */
+    position: fixed;
+    width: 250px;
+    height: 650px;
+    top: 51px;
+    background-color: #959dd2;
+}
+.menus{
+    margin: 50px 0;
+    color: #fff;
+}
+.li{
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 16px 0;
+    /* 动画过渡 */
+    transition: 0.3s;
+}
+.menus li:hover{
+    background-color: #a6add2;
+}
+.li .fa{
+    font-size: 13px;
+    width: 50px;
+    height: 20px;
+    text-align: center;
+    margin-left: 5px;
+}
+.li ul{
+    width: 0;
+    height: 550px;
+    padding: 50px 0;
+    background-color: #7477ab;
+    position: absolute;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.li ul li{
+    padding: 16px 24px;
+    /* 文字禁止换行 */
+    white-space: nowrap;
+    transition: 0.3s;
+}
+.li:hover ul{
+    width: 200px;
+}
+.li ul li:hover{
+    background-color: #a28fc2;
+}

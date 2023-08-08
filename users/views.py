@@ -1,12 +1,12 @@
-
-
+import json
+from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
 from django.shortcuts import *
 from django.views import generic
 from users import models
 from django import forms
 from .forms import loginForm, signUpForm
 from django.core.validators import RegexValidator
-
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import HttpResponse
 # Create your views here.
 
@@ -24,6 +24,7 @@ def login(request):
         print(user_object)
         if user_object:
             request.session['user_session'] = {'id': user_object.id, 'name': user_object.name}
+            request.session.set_expiry(60*60*24*7)
             return redirect("/home/")
         else:
             return render(request, 'register/login.html', {"form":form,"error": "username or password error"})
@@ -71,6 +72,10 @@ def signup(request):
             return render(request, 'register/signup.html', {'form': form})
     form = signUpForm()
     return render(request, 'register/signup.html', {'form': form})
+
+def logout(request):
+    auth_logout(request)
+    return redirect('home')
 
 def login_signup(request):
     return render(request, "register/login_signup.html")

@@ -6,22 +6,30 @@
     <div class="container">
     <div>
         <h2>Reading</h2>
+       <a href="/content/all_courses_list/">
+        <button class="button">ALL</button>
+        </a>
+
 
     </div>
     <div class="shell">
 {% for item in queryset %}
         <div class="box">
+        <div>
             <div class="images">
-                <img src="/static/image/course_img/{{ item.title }}.png" alt="{{ item.title }}">
+                <img src="/static/image/course_img/{{ item.level2 }}.png" alt="{{ item.level2 }}">
             </div>
             <div class="content">
-                <a href="/content/all_content/?id={{ item.id }}">
-                <h2>{{item.title}}</h2>
+                <a href="/content/all_courses/?id={{ item.id }}">
+                <h2 style="background-color: white; width: fit-content">START</h2>
                 </a>
                 <p>{{ item.title }}, the style in the painting integrates temptation, fantasy and strangeness
                 </p>
             </div>
         </div>
+            <p style="font-family: Algerian; font-size: smaller"><a href="/content/all_courses/?id={{ item.id }}">{{ item.title }}</a></p>
+
+    </div>
 {% endfor %}
     </div>
     </div>

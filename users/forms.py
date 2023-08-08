@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from users import models
+from captcha.fields import CaptchaField
 
 
 class loginForm(forms.Form):
@@ -12,6 +13,12 @@ class loginForm(forms.Form):
         label="password",
         widget=forms.PasswordInput(attrs={"placeholder":"Password"})
     )
+    # 验证码尝试
+    # captcha = CaptchaField(label='code')
+    # code = forms.CharField(
+    #     label="code",
+    #     widget=forms.TextInput(attrs={'placeholder':"Input code above"})
+    # )
 
 class signUpForm(forms.Form):
     username = forms.CharField(

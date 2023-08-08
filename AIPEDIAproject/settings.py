@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "users.apps.UsersConfig",
-    "content.apps.ContentConfig"
+    "content.apps.ContentConfig",
+    'captcha'
 ]
 
 MIDDLEWARE = [
@@ -73,6 +74,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'AIPEDIAproject.wsgi.application'
+
+# 文件上传路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload').replace('\\', '/')
+MEDIA_URL = '/upload/'
+
+# 上传视频最大尺寸
+CHUNKED_UPLOAD_MAX_BYTES = 10000000000
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 # Database
@@ -138,3 +148,18 @@ STATICFILES_DIRS = (
     #static这个名字和项目下新建的目录static对应，和引用无关
     os.path.join(BASE_DIR,'static'),
 )
+
+# setting captcha
+
+# CAPTCHA_IMAGE_SIZE = (80,45)
+# CAPTCHA_LENGTH = 4
+# CAPTCHA_TIMEOUT = 1
+# CAPTCHA_FONT_PATH = r'\venv\Lib\site-packages\captcha\fonts\Vera.ttf'
+#
+# CAPTCHA_OUTPUT_FORMAT = '%(text_field)s %(image)s %(hidden_field)s'
+# CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_null',
+#                            'captcha.helpers.noise_arcs',
+#                            'captcha.helpers.noise_dots',
+#                            )
+#
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'

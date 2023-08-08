@@ -1,0 +1,84 @@
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+    <div>
+        <h2>Reading</h2>
+        <div class="buttons">
+       <a href="/content/add/content/">
+        <button class="button1">Share</button>
+        </a>
+        <a href="/content/all_courses_list/">
+        <button class="button1">Read More</button>
+        </a>
+        </div>
+
+
+    </div>
+    <div class="shell">
+{% for item in queryset %}
+        <div class="box">
+        <div>
+            <div class="images">
+                <img src="/static/image/course_img/{{ item.level2 }}.png" alt="{{ item.level2 }}">
+            </div>
+            <div class="content">
+                <a href="/content/all_courses/?id={{ item.id }}">
+                <h2 style="background-color: white; width: fit-content">START</h2>
+                </a>
+                <p>{{ item.title }}, the style in the painting integrates temptation, fantasy and strangeness
+                </p>
+            </div>
+        </div>
+            <p style="font-family: Algerian; font-size: smaller"><a href="/content/all_courses/?id={{ item.id }}">{{ item.title }}</a></p>
+
+        </div>
+{% endfor %}
+    </div>
+
+{#    watching==------------------------------------------------------------------#}
+    <div>
+        <h2>Watching</h2>
+        <div class="buttons">
+       <a href="/content/add/content/">
+        <button class="button1">Share</button>
+        </a>
+        <a href="/content/all_video_list/">
+        <button class="button1">Watch More</button>
+        </a>
+        </div>
+
+
+    </div>
+    <div class="shell">
+{#{% for item in queryset_vedio %}#}
+        <div class="box">
+            <div class="images">
+                <img src="/static/image/course_img/1.png" >
+            </div>
+            <div class="content">
+                <a href="#">
+                <h2></h2>
+                </a>
+                <p>
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="images">
+                <img src="/static/image/course_img/2.png" >
+            </div>
+            <div class="content">
+                <a href="#">
+                <h2></h2>
+                </a>
+                <p>
+                </p>
+            </div>
+        </div>
+{#{% endfor %}#}
+    </div>
+    </div>
+{% endblock %}

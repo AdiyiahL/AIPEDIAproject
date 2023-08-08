@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to {{content_object.title}}</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" href="{% static 'css/content_style.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <a href="/content/courses_list" class="logo">AI-PEDIA</a>
+        <ul class="nav">
+            <li><a href="#what">What is it</a> </li>
+            <li><a href="#play">Source</a> </li>
+            <li><a href="/content/all_courses_list">Back</a> </li>
+        </ul>
+    </div>
+    <div class="banner-area" id="home">
+        <div id="character-A"></div>
+        <div id="speech-bubble-A"></div>
+        <div id="character-B"></div>
+        <div id="speech-bubble-B"></div>
+        <div id="character-C"></div>
+        <div id="speech-bubble-C"></div>
+    </div>
+    <div class="what-area" id="what">
+        <div class="text-part">
+            <h1>What is {{content_object.title}}?</h1>
+            <h2></h2>
+            <p>
+                {{content_object.contents }}
+            </p>
+            <section class="services-section"></section>
+        </div>
+    </div>
+    <div class="how-area" id="how">
+        <div class="text-part">
+            <p>
+                {{content_object.contents1 }}
+            </p>
+            <section class="services-section"></section>
+        </div>
+    </div>
+    <div class="play-area" id="play">
+        <div class="text-part">
+            <h2>You can learn more about this field using the link below:</h2>
+            <p>
+                {{content_object.source }}
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+      $(".services").owlCarousel({
+        margin:20,
+        loop:true,
+        autoplay:true,
+        autoplayTimeout:2000,
+        autoplayHoverPause:true,
+        responsive:{
+          0:{
+            items:1
+          },
+          600:{
+            items:2
+          },
+          1000:{
+            items:3
+          }
+        }
+      });
+
+      var characterA = document.getElementById('character-A');
+        var speechBubbleA = document.getElementById('speech-bubble-A');
+        var textA = "Hello, Do you know what is it?";
+
+        characterA.addEventListener('mouseenter', function () {
+            speechBubbleA.textContent = textA;
+            speechBubbleA.style.display = 'block';
+        });
+
+        characterA.addEventListener('mouseleave', function () {
+            speechBubbleA.style.display = 'none';
+        });
+        var characterB = document.getElementById('character-B');
+        var speechBubbleB = document.getElementById('speech-bubble-B');
+        var textB = "OOPS, we don't know!";
+
+        characterB.addEventListener('mouseenter', function () {
+            speechBubbleB.textContent = textB;
+            speechBubbleB.style.display = 'block';
+        });
+
+        characterB.addEventListener('mouseleave', function () {
+            speechBubbleB.style.display = 'none';
+        });
+        var characterC = document.getElementById('character-C');
+        var speechBubbleC = document.getElementById('speech-bubble-C');
+        var textC = "But we can learn!";
+
+        characterC.addEventListener('mouseenter', function () {
+            speechBubbleC.textContent = textC;
+            speechBubbleC.style.display = 'block';
+        });
+
+        characterC.addEventListener('mouseleave', function () {
+            speechBubbleC.style.display = 'none';
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        // var container = document.getElementById('container');
+        // var hiddenContent = document.getElementById('hidden-content');
+        //
+        // container.addEventListener('mousemove', function (event) {
+        //     var rect = container.getBoundingClientRect();
+        //     var xPos = event.clientX - rect.left;
+        //     var yPos = event.clientY - rect.top;
+        //
+        //     if (xPos >= 0 && xPos <= rect.width && yPos >= 0 && yPos <= rect.height) {
+        //         hiddenContent.style.display = 'block';
+        //     } else {
+        //         hiddenContent.style.display = 'none';
+        //     }
+        // });
+
+    //   test effect
+        var submitButton = document.getElementById('submit-button');
+        var resultsDiv = document.getElementById('results');
+
+        submitButton.addEventListener('click', function () {
+            var inputText = document.getElementById('input-text').value;
+
+            // Clear previous results
+            resultsDiv.innerHTML = '';
+
+            // Process the text with  (replace this with your own  code)
+            // Here, we're simply splitting the text into words
+            var words = inputText.split(' ');
+
+            // Display the results
+            for (var i = 0; i < words.length; i++) {
+                var word = words[i];
+                var wordSpan = document.createElement('span');
+                wordSpan.textContent = word + ' ';
+                resultsDiv.appendChild(wordSpan);
+            }
+        });
+
+    //    hidden content
+        function toggleContent(id) {
+          var content = document.getElementById(id);
+          if (content.style.display === "none") {
+            content.style.display = "block";
+          } else {
+            content.style.display = "none";
+          }
+    }
+
+    //progress bar
+        $(".step").click( function() {
+      $(this).addClass("active").prevAll().addClass("active");
+      $(this).nextAll().removeClass("active");
+    });
+    $(".step01").click( function() {
+      $("#line-progress").css("width", "3%");
+      $(".discovery").addClass("active").siblings().removeClass("active");
+    });
+    $(".step02").click( function() {
+      $("#line-progress").css("width", "25%");
+      $(".strategy").addClass("active").siblings().removeClass("active");
+    });
+    $(".step03").click( function() {
+      $("#line-progress").css("width", "50%");
+      $(".creative").addClass("active").siblings().removeClass("active");
+    });
+    $(".step04").click( function() {
+      $("#line-progress").css("width", "75%");
+      $(".production").addClass("active").siblings().removeClass("active");
+    });
+    $(".step05").click( function() {
+      $("#line-progress").css("width", "100%");
+      $(".analysis").addClass("active").siblings().removeClass("active");
+    });
+    </script>
+</body>
+</html>

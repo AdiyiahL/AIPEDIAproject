@@ -82,6 +82,7 @@
             <i></i>
             <i></i>
         </div>
+        <div class="Stairs-of-AI">Stairs of AI</div>
         <div class="step" style="--j:3";>
             <i></i>
             <i></i>
@@ -141,7 +142,7 @@
 
 {#    <div class="button_area">#}
         <div class="button_left">
-            <a href="/content/content_list" class="button">
+            <a href="/content/courses_list" class="button">
                 <div class="button__content">
                    <span class="button__text">Study</span>
 
@@ -184,6 +185,16 @@
 
 
 </div>
+<script>
+    let total = 2;
+    let shadow = '';
+    for(let i=1;i<=total;i++){
+        shadow+=`-${i}px ${i}px 0 #c5c5c5,`;
+    }
+    shadow = shadow.slice(0,-1);
+    const text = document.querySelector('.Stairs-of-AI');
+    text.style.textShadow = shadow;
+</script>
 <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'bootstrap-3.4.1-dist/js/bootstrap.min.js' %}"></script>
 </body>
