@@ -41,15 +41,15 @@ def addContent(request):
             example = form.cleaned_data.get('example')
             source = form.cleaned_data.get('source')
             try_area = form.cleaned_data.get('try_area')
-            image_data = request.FILES.get('image1'),
-            print(image_data[0])
-            image_name = request.FILES.get('image1').name,
+            image_data = request.FILES.get('image1')
+            print(image_data)
+            image_name = request.FILES.get('image1').name
             print(image_name)
             user_obj_id = request.user_session["id"]
             new = models.NewContent.objects.create(
                 title=title,what_area=what_area,how_area=how_area,
                 example=example,source=source,try_area=try_area,
-                image_data=image_data[0],image_name=image_name[0],userId_id=user_obj_id)
+                image_data=image_data,image_name=image_name,userId_id=user_obj_id)
             print("save success")
             return redirect("/content/content_list")
         else:
@@ -128,7 +128,7 @@ def all_courses(request):
 
 def content_list(request):
     # query
-    queryset = models.NewContent.objects.all().order_by("id")[:4]
+    queryset = models.NewContent.objects.all().order_by("id")
     return render(request, 'content/content_list.html', {"queryset": queryset})
     # return render(request,"content/all_content.html",)
 

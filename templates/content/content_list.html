@@ -21,7 +21,7 @@
 {% for item in queryset %}
         <div class="box">
             <div class="images">
-                <img src="/static/image/course_img/{{ item.title }}.png" alt="{{ item.title }}">
+                <img src="/media/user_images/{{ item.image_name }}" alt="{{ item.image_name }}">
             </div>
             <div class="content">
                 <a href="/content/all_content/?id={{ item.id }}">
@@ -35,46 +35,5 @@
     </div>
 
 {#    watching==------------------------------------------------------------------#}
-    <div>
-        <h2>Watching</h2>
-        <div class="buttons">
-       <a href="/content/add/content/">
-        <button class="button1">Add New</button>
-        </a>
-        <a href="/content/add/content/">
-        <button class="button1">Watch More</button>
-        </a>
-        </div>
-
-
-    </div>
-    <div class="shell">
-{#{% for item in queryset_vedio %}#}
-        <div class="box">
-            <div class="images">
-                <img src="/static/image/course_img/1.png" >
-            </div>
-            <div class="content">
-                <a href="#">
-                <h2></h2>
-                </a>
-                <p>
-                </p>
-            </div>
-        </div>
-        <div class="box">
-            <div class="images">
-                <img src="/static/image/course_img/2.png" >
-            </div>
-            <div class="content">
-                <a href="#">
-                <h2></h2>
-                </a>
-                <p>
-                </p>
-            </div>
-        </div>
-{#{% endfor %}#}
-    </div>
     </div>
 {% endblock %}
