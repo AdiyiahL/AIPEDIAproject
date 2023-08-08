@@ -53,7 +53,7 @@
         /* 当鼠标所有卡片的父元素点shell上时，
         所有卡片像Y轴翻转20度 */
         .shell:hover .box {
-            transform: rotateY(3deg);
+            transform: rotateY(2deg);
         }
 
         /* 当鼠标悬浮在当前卡片上时，当前卡片的翻转角度为0，
@@ -67,7 +67,7 @@
         /* 当鼠标悬浮在卡片上时，
         当前卡片后面的所有卡片全部都反向翻转负20度 */
         .shell .box:hover~.box {
-            transform: rotateY(-3deg);
+            transform: rotateY(-2deg);
         }
 
         .shell .box .images img {
@@ -95,11 +95,12 @@
         }
 
         .shell .box .content p {
-            color: rgb(0, 0, 0);
+            color: rgb(182, 182, 51);
             transition: 0.3s;
             font-size: 14px;
             transform: translateY(500px);
-            background-color: rgb(230, 235, 248);
+            /*background-color: rgb(230, 235, 248);*/
+            /*perspective: 900px;*/
         }
 
         .shell .box:hover .content p {
@@ -141,4 +142,8 @@
 
     .sidebar .sub-menu li {
       margin-bottom: 2px;
+    }
+
+    .reading{
+        margin-left: 40px;
     }
