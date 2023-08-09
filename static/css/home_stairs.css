@@ -50,6 +50,27 @@ body{
     transform: rotateX(-30deg) rotateY(48deg);
     /*animation: animate 20s linear infinite;*/
 }
+.chara2{
+    position: absolute;
+    top: 250px;
+    left: 700px;
+    z-index: 99999999999;
+
+}
+.chara3{
+    position: absolute;
+    top: 150px;
+    left: 1000px;
+    z-index: 99999999999;
+
+}
+.chara1{
+    position: absolute;
+    top: 250px;
+    left: 700px;
+    z-index: 99999999999;
+
+}
 @keyframes animate {
     0%{
         transform: rotateX(-30deg) rotateY(0deg);
@@ -175,6 +196,20 @@ body{
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateY(140deg);
     /*animation: animate 20s linear infinite;*/
+}
+.chara2{
+    position: absolute;
+    top: 250px;
+    left: 500px;
+    z-index: 99999999999;
+
+}
+.chara3{
+    position: absolute;
+    top: 150px;
+    left: 1000px;
+    z-index: 99999999999;
+
 }
 @keyframes animate {
     0%{
