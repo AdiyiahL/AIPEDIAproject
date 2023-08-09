@@ -27,7 +27,7 @@
     top: 400px;
     left: 1162px;
     width: 170px;
-    z-index: 9
+    z-index: 9;
 }
 
 .chara5 {
@@ -35,7 +35,7 @@
     top: 430px;
     left: 31px;
     width: 170px;
-    z-index: 9
+    z-index: 9999999999999;
 }
 
 .stairs{

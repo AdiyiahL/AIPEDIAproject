@@ -14,6 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import users.apps
+import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -22,12 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'km!3l-%xilt&dc-ax6ti1$3&n!(azzyqln4y24i(co256^2py!'
+# SECRET_KEY = 'km!3l-%xilt&dc-ax6ti1$3&n!(azzyqln4y24i(co256^2py!'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG","False").lower() == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition 每注册一个新的app都应该修改一下。注册顺序是优先级
@@ -77,15 +79,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AIPEDIAproject.wsgi.application'
 
-# 文件上传路径
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'upload').replace('\\', '/')
-# MEDIA_URL = '/upload/'
+#file root
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
-
-# 上传视频最大尺寸
+# video
 CHUNKED_UPLOAD_MAX_BYTES = 10000000000
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
@@ -100,15 +98,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'aipedia',
-        'USER': 'root',
-        'PASSWORD': 'lxt20000321',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+        # 'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'aipedia',
+        # 'USER': 'root',
+        # 'PASSWORD': 'lxt20000321',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
     }
 }
-
+database_url = os.environ.get("DATABASE_URL")
+DATABASES["default"] = dj_database_url.parse(database_url)
+# postgres://aipedia_django_render_user:hY2DHosbAwEc2AAimOnQlCouLL1n0K8e@dpg-cj9s7igp288c73bbs4lg-a.oregon-postgres.render.com/aipedia_django_render
+# psw: hY2DHosbAwEc2AAimOnQlCouLL1n0K8e
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
 
@@ -152,26 +153,3 @@ STATICFILES_DIRS = (
     #static这个名字和项目下新建的目录static对应，和引用无关
     os.path.join(BASE_DIR,'static'),
 )
-
-# STATIC_URL = '/media/'
-#
-# #全局变量名，赋值一个元组
-# STATICFILES_DIRS = (
-#     #static这个名字和项目下新建的目录static对应，和引用无关
-#     os.path.join(BASE_DIR,'media'),
-# )
-
-# setting captcha
-
-# CAPTCHA_IMAGE_SIZE = (80,45)
-# CAPTCHA_LENGTH = 4
-# CAPTCHA_TIMEOUT = 1
-# CAPTCHA_FONT_PATH = r'\venv\Lib\site-packages\captcha\fonts\Vera.ttf'
-#
-# CAPTCHA_OUTPUT_FORMAT = '%(text_field)s %(image)s %(hidden_field)s'
-# CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_null',
-#                            'captcha.helpers.noise_arcs',
-#                            'captcha.helpers.noise_dots',
-#                            )
-#
-# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'

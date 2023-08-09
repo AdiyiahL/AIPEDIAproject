@@ -47,9 +47,9 @@ def admin_login(request):
         admin_object = models.AdminUser.objects.filter(name=username,pwd=password).first()
         print(admin_object)
         if admin_object:
-            # request.session['user_session'] = {'id': user_object.id, 'name': user_object.name}
+            request.session['user_session'] = {'id': admin_object.id, 'name': admin_object.name}
             # request.session.set_expiry(60*60*24*7)
-            return redirect("/content/add_courses/")
+            return redirect("/content/add/courses/")
         else:
             return redirect("/users/choose_login/")
     else:
@@ -105,15 +105,15 @@ def login_signup(request):
 def success_signup(request):
     return render(request,"register/success_signup.html")
 
-def index(request):
-    queryset = [
-        {"name": "root", "phone": "11111111", "city": "上海"},
-        {"name": 2, "phone": "11111111", "city": "上海"},
-        {"name": 3, "phone": "11111111", "city": "上海"},
-        {"name": 4, "phone": "11111111", "city": "上海"},
-    ]
-    # 2通过页面渲染返回用户，表格
-    return render(request, 'index_admin.html', {"data": queryset})
+# def index(request):
+#     queryset = [
+#         {"name": "root", "phone": "11111111", "city": "上海"},
+#         {"name": 2, "phone": "11111111", "city": "上海"},
+#         {"name": 3, "phone": "11111111", "city": "上海"},
+#         {"name": 4, "phone": "11111111", "city": "上海"},
+#     ]
+#     # 2通过页面渲染返回用户，表格
+#     return render(request, 'index_admin.html', {"data": queryset})
 
 
 def home(request):

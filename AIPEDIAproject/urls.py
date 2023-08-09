@@ -26,7 +26,6 @@ from content.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls',namespace='users')),
-    path('index/',index),
     path('content/',include('content.urls',namespace='content')),
     path('home/',home),
     re_path(r'^media/(?P<path>.*)',serve, {'document_root': MEDIA_ROOT})
