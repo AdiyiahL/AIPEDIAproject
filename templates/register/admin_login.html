@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/users_style.css' %}">
 </head>
 <body>
- <form class="box" action="{% url 'users:login' %}" method="post" novalidate>
+ <form class="box" action="{% url 'users:admin_login' %}" method="post" novalidate>
 {#     image code #}
      {% if form.captcha.errors %}
                     <div class="alert alert-warning">{{ form.captcha.errors }}</div>
@@ -16,7 +16,7 @@
                 {% endif %}
 {#   image code#}
      {% csrf_token %}
-  <h1>User Login</h1>
+  <h1>Admin Login</h1>
      <div>
          {{ form.username }}
          <span style="color: red; font-size: 1px">{{ form.username.errors.0 }}</span>
@@ -45,9 +45,6 @@
 
   <input type="submit" name="" value="Login">
 
-     <div class="ui message" style="font-size: 10px">
-                have no account？<a href="{% url 'users:signup' %}">sign up</a>
-</div>
      <span style="color: red">{{ error }}</span>
 </form>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>

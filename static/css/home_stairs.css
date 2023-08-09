@@ -35,7 +35,7 @@ body{
     min-height: 100vh;
 
 
-    background: radial-gradient(#e5e9fd, #a3aae0);
+    background: radial-gradient(#e5e9fd, #a7aee3);
     overflow: hidden;
 
 }
@@ -67,7 +67,7 @@ body{
     left: 60px;
     width: 480px;
     height: 300px;
-    background: #6b7cc9;
+    background: #7585ce;
     transform: rotateX(90deg) translateZ(-150px) scale(1.25);
     filter: blur(20px);
     opacity: 0.5;
@@ -90,7 +90,7 @@ body{
     left: 0;
     width: 60px;
     height: 300px;
-    background: #a9b4ee;
+    background: #abb5e8;
     transform: rotateX(90deg) translateZ(150px);
 }
 
@@ -106,7 +106,7 @@ body{
     left: 0;
     width: 300px;
     height: 60px;
-    background: #7889d0;
+    background: #8190d2;
     transform: rotateY(90deg) translateZ(-150px);
 }
 
@@ -115,7 +115,7 @@ body{
     display: block;
     width: 60px;
     height: 100%;
-    background: #7283cb;
+    background: #7b8acc;
     transform-style: preserve-3d;
     /*z-index: 999999999;*/
 }
@@ -164,7 +164,7 @@ body{
     left: 0;
     width: 300px;
     height: 100%;
-    background: #5f71be;
+    background: #6979c0;
     transform: rotateY(90deg) translate3d(-150px,0,-90px);
 }
 
@@ -196,7 +196,7 @@ body{
     left: 30px;
     width: 300px;
     height: 300px;
-    background: #6b7cc9;
+    background: #7484cb;
     transform: rotateX(90deg) translateZ(-150px) scale(1.25);
     filter: blur(20px);
     opacity: 0.5;
@@ -219,7 +219,7 @@ body{
     left: 0px;
     width: 50px;
     height: 270px;
-    background:#a9b4ee ;
+    background: #abb5ea;
     transform: rotateX(90deg) translateZ(150px);
 }
 
@@ -235,7 +235,7 @@ body{
     left: 15px;
     width: 270px;
     height: 50px;
-    background: #7889d0;
+    background: #8191d3;
     transform: rotateY(90deg) translateZ(-150px);
 }
 
@@ -244,7 +244,7 @@ body{
     display: block;
     width: 50px;
     height: 100%;
-    background: #7283cb;
+    background: #7a8acc;
     transform-style: preserve-3d;
 }
 
@@ -266,6 +266,6 @@ body{
     left: 0;
     width: 270px;
     height: 100%;
-    background: #5f71be;
+    background: #6878c0;
     transform: rotateY(90deg) translate3d(-135px,0,-85px);
 }

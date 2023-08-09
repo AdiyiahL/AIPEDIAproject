@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import *
 from django.views import generic
 from content import models
+from users import models as user_models
 from .forms import NewContentForm, NewCoursesForm
 # import pwden
 from django.http import JsonResponse
@@ -57,6 +58,14 @@ def addContent(request):
             return render(request, 'content/add_content.html', {'form': form})
 
 def addCourses(request):
+    user_obj_id = request.user_session["id"]
+    print(user_obj_id)
+    user_obj_name = user_models.UserInfo.objects.filter(id=user_obj_id).values('name')
+    name = user_obj_name[0]['name']
+    user_obj = user_models.AdminUser.objects.filter(name=name).first()
+    print(user_obj)
+    if user_obj is None:
+        return redirect("/users/choose_login/")
     #add new content
     if request.method == "GET":
         form = NewCoursesForm()

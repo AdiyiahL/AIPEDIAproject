@@ -33,6 +33,31 @@ def login(request):
         # print(form.errors)
         return render(request, 'register/login.html', {'form': form})
 
+def admin_login(request):
+    print(11111)
+    if request.method=="GET":
+        form = loginForm()
+        print(form.errors)
+        return render(request, 'register/admin_login.html', {'form': form})
+    form = loginForm(data=request.POST)
+    print(1111111)
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        admin_object = models.AdminUser.objects.filter(name=username,pwd=password).first()
+        print(admin_object)
+        if admin_object:
+            # request.session['user_session'] = {'id': user_object.id, 'name': user_object.name}
+            # request.session.set_expiry(60*60*24*7)
+            return redirect("/content/add_courses/")
+        else:
+            return redirect("/users/choose_login/")
+    else:
+        # print(form.errors)
+        return render(request, 'register/login.html', {'form': form})
+
+def choose_login(request):
+    return render(request, 'register/choose_login.html')
 
 def signup(request):
     if request.method == 'POST':

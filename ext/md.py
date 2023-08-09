@@ -9,6 +9,8 @@ class MyMiddleware(MiddlewareMixin):
             return
         if request.path_info=="/users/signup/":
             return
+        if request.path_info=="/users/admin_login/":
+            return
 
         #获取user_session
         user_session = request.session.get('user_session')
