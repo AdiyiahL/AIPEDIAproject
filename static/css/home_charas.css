@@ -43,7 +43,7 @@
 }
 
 .chara4:hover {
-    transform: rotateY(0deg) scale(1.25);
+    transform: rotateX(-20deg) scale(1.15);
 }
 .chara1:hover {
     transform: rotateY(0deg) scale(1.15);
