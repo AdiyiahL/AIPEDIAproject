@@ -25,7 +25,7 @@ def login(request):
         print(user_object)
         if user_object:
             request.session['user_session'] = {'id': user_object.id, 'name': user_object.name}
-            request.session.set_expiry(60*60*24*7)
+            # request.session.set_expiry(60*60*24*7)
             return redirect("/home/")
         else:
             return render(request, 'register/login.html', {"form":form,"error": "username or password error"})

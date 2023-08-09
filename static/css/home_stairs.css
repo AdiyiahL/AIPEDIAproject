@@ -49,25 +49,29 @@ body{
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateY(48deg);
     /*animation: animate 20s linear infinite;*/
+    z-index: 999999999;
 }
-.chara2{
+.chara2 {
     position: absolute;
     top: 250px;
     left: 700px;
+    width: 300px;
     z-index: 99999999999;
 
 }
-.chara3{
+.chara3 {
     position: absolute;
     top: 150px;
     left: 1000px;
+    width: 300px;
     z-index: 99999999999;
 
 }
-.chara1{
+.chara1 {
     position: absolute;
     top: 250px;
     left: 700px;
+    width: 300px;
     z-index: 99999999999;
 
 }
@@ -196,8 +200,9 @@ body{
     transform-style: preserve-3d;
     transform: rotateX(-30deg) rotateY(140deg);
     /*animation: animate 20s linear infinite;*/
+    z-index: 999999999;
 }
-.chara2{
+.chara2 img{
     position: absolute;
     top: 250px;
     left: 500px;
