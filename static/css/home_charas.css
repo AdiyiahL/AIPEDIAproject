@@ -1,16 +1,16 @@
 .chara2 {
     position: absolute;
-    top: 355px;
-    left: 240px;
-    width: 300px;
+    top: 360px;
+    left: 270px;
+    width: 170px;
     z-index: 99999999999;
 
 }
 .chara3 {
     position: absolute;
-    top: 300px;
+    top: 280px;
     left: 510px;
-    width: 300px;
+    width: 170px;
     z-index: 99999999999;
 
 }
@@ -18,13 +18,42 @@
     position: absolute;
     top: 150px;
     left: 900px;
-    width: 300px;
+    width: 170px;
     z-index: 99999999999;
 
 }
 .chara4 {
     position: absolute;
-    top: 405px;
+    top: 400px;
     left: 1162px;
-    width: 500px;
+    width: 170px;
+    z-index: 9
+}
+
+.chara5 {
+    position: absolute;
+    top: 430px;
+    left: 31px;
+    width: 170px;
+    z-index: 9
+}
+
+.stairs{
+    z-index: 99999999;
+}
+
+.chara4:hover {
+    transform: rotateY(0deg) scale(1.25);
+}
+.chara1:hover {
+    transform: rotateY(0deg) scale(1.15);
+}
+.chara2:hover {
+    transform: rotateY(0deg) scale(1.15);
+}
+.chara3:hover {
+    transform: rotateY(0deg) scale(1.15);
+}
+.chara5:hover {
+    transform: rotateY(0deg) scale(1.15);
 }

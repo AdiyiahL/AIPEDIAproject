@@ -67,7 +67,7 @@ body{
     left: 60px;
     width: 480px;
     height: 300px;
-    background: #6b7cc9;
+    background: #fffcc6;
     transform: rotateX(90deg) translateZ(-150px) scale(1.25);
     filter: blur(20px);
     opacity: 0.5;
@@ -90,7 +90,7 @@ body{
     left: 0;
     width: 60px;
     height: 300px;
-    background: #a9b4ee;
+    background: #fcf9e1;
     transform: rotateX(90deg) translateZ(150px);
 }
 
@@ -106,7 +106,7 @@ body{
     left: 0;
     width: 300px;
     height: 60px;
-    background: #7889d0;
+    background: #d0c978;
     transform: rotateY(90deg) translateZ(-150px);
 }
 
@@ -115,9 +115,9 @@ body{
     display: block;
     width: 60px;
     height: 100%;
-    background: #7283cb;
+    background: #d7d1a5;
     transform-style: preserve-3d;
-    z-index: 999999999;
+    /*z-index: 999999999;*/
 }
 
 .stairs .Stairs-of-AI{
@@ -131,7 +131,7 @@ body{
     /*font-family: Algerian;*/
     font-size: 5em;
     font-weight: 900;
-    z-index: 999999999;
+    /*z-index: 999999999;*/
 
     /*text-shadow: black;*/
 }
@@ -180,20 +180,6 @@ body{
     transform: rotateX(-30deg) rotateY(140deg);
     /*animation: animate 20s linear infinite;*/
     z-index: 999999999;
-}
-.chara2 img{
-    position: absolute;
-    top: 250px;
-    left: 500px;
-    z-index: 99999999999;
-
-}
-.chara3{
-    position: absolute;
-    top: 150px;
-    left: 1000px;
-    z-index: 99999999999;
-
 }
 @keyframes animate {
     0%{
@@ -283,3 +269,276 @@ body{
     background: #5f71be;
     transform: rotateY(90deg) translate3d(-135px,0,-85px);
 }
+
+/*==============================================================================================*/
+/**{*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    box-sizing: border-box;*/
+
+/*}*/
+/*nav .container-fluid{*/
+/*    !*background-color:rgba(1,1,1,0.5);*!*/
+/*    !*background: rgba(238, 244, 252, 0.37);*!*/
+/*}*/
+
+/*.button_area{*/
+/*    position: absolute;*/
+/*    bottom: 10px;*/
+/*}*/
+/*.button_left{*/
+/*    position: absolute;*/
+/*    left: 20px;*/
+/*    bottom: 10px;*/
+/*    display:inline-block;*/
+/*    margin: 10px;*/
+/*}*/
+/*.button_right{*/
+/*    position: absolute;*/
+/*    left: 200px;*/
+/*    bottom: 10px;*/
+/*    display:inline-block;*/
+/*    margin: 10px;*/
+/*}*/
+
+/*body{*/
+/*    !*display: flex;*!*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    min-height: 100vh;*/
+
+
+/*    background: radial-gradient(#dde1ff, #9ea6e0);*/
+/*    overflow: hidden;*/
+
+/*}*/
+
+/*.stairs {*/
+/*    position: absolute;*/
+/*    top: 300px;*/
+/*    left: 650px;*/
+/*    width: 500px;*/
+/*    height: 300px;*/
+/*    transform-style: preserve-3d;*/
+/*    transform: rotateX(-30deg) rotateY(48deg);*/
+/*    !*animation: animate 20s linear infinite;*!*/
+/*    z-index: 999999999;*/
+/*}*/
+
+/*@keyframes animate {*/
+/*    0%{*/
+/*        transform: rotateX(-30deg) rotateY(0deg);*/
+/*    }*/
+/*    100%{*/
+/*        transform: rotateX(-30deg) rotateY(360deg);*/
+/*    }*/
+
+/*}*/
+/*.stairs .base_stair{*/
+/*    position: absolute;*/
+/*    top: 0px;*/
+/*    left: 60px;*/
+/*    width: 480px;*/
+/*    height: 300px;*/
+/*    background: #6b7cc9;*/
+/*    transform: rotateX(90deg) translateZ(-150px) scale(1.25);*/
+/*    filter: blur(20px);*/
+/*    opacity: 0.5;*/
+/*}*/
+
+/*.stairs .step{*/
+/*    position: absolute;*/
+/*    left: calc(60px * var(--j));*/
+/*    bottom: 0;*/
+/*    width: 60px;*/
+/*    height: calc(60px * var(--j));*/
+/*    !*background: red;*!*/
+/*    transform-style: preserve-3d;*/
+/*}*/
+
+/*.stairs .step::before{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 60px;*/
+/*    height: 300px;*/
+/*    background: #a9b4ee;*/
+/*    transform: rotateX(90deg) translateZ(150px);*/
+/*}*/
+
+/*.stairs .step:hover::before {*/
+/*    filter: brightness(1.1);*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.stairs .step::after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 300px;*/
+/*    height: 60px;*/
+/*    background: #7889d0;*/
+/*    transform: rotateY(90deg) translateZ(-150px);*/
+/*}*/
+
+/*.stairs .step i{*/
+/*    position: absolute;*/
+/*    display: block;*/
+/*    width: 60px;*/
+/*    height: 100%;*/
+/*    background: #7283cb;*/
+/*    transform-style: preserve-3d;*/
+/*    !*z-index: 999999999;*!*/
+/*}*/
+
+/*.stairs .Stairs-of-AI{*/
+/*    position: absolute;*/
+/*    display: block;*/
+/*    width: 380px;*/
+/*    height: 100%;*/
+/*    transform-style: preserve-3d;*/
+/*    transform: translateZ(155px) translateX(230px) translateY(115px);*/
+/*    color: rgba(255, 255, 255, 0.93);*/
+/*    !*font-family: Algerian;*!*/
+/*    font-size: 5em;*/
+/*    font-weight: 900;*/
+/*    !*z-index: 999999999;*!*/
+
+/*    !*text-shadow: black;*!*/
+/*}*/
+
+/*.stairs .Stairs-of-AI::before{*/
+/*    content: 'Stairs of AI';*/
+/*    position: absolute;*/
+/*    color: rgba(0,0,0,0);*/
+/*    filter:blur(8px);*/
+/*    z-index:-1;*/
+/*    left: -2px;*/
+/*    top: 2px;*/
+/*}*/
+
+/*.stairs .step i:nth-child(1)*/
+/*{*/
+/*    transform: translateZ(150px);*/
+/*}*/
+
+/*.stairs .step i:nth-child(2)*/
+/*{*/
+/*    transform: translateZ(-150px);*/
+/*}*/
+
+/*.stairs .step:last-child i:nth-child(2)::before*/
+/*{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 300px;*/
+/*    height: 100%;*/
+/*    background: #5f71be;*/
+/*    transform: rotateY(90deg) translate3d(-150px,0,-90px);*/
+/*}*/
+
+
+/*!*little one*!*/
+/*.stairs1 {*/
+/*    position: absolute;*/
+/*    top: 180px;*/
+/*    left: 0px;*/
+/*    width: 500px;*/
+/*    height: 300px;*/
+/*    transform-style: preserve-3d;*/
+/*    transform: rotateX(-30deg) rotateY(140deg);*/
+/*    !*animation: animate 20s linear infinite;*!*/
+/*    z-index: 999999999;*/
+/*}*/
+/*@keyframes animate {*/
+/*    0%{*/
+/*        transform: rotateX(-30deg) rotateY(0deg);*/
+/*    }*/
+/*    100%{*/
+/*        transform: rotateX(-30deg) rotateY(360deg);*/
+/*    }*/
+
+/*}*/
+/*.stairs1 .base_stair1{*/
+/*    position: absolute;*/
+/*    top: 0px;*/
+/*    left: 30px;*/
+/*    width: 300px;*/
+/*    height: 300px;*/
+/*    background: #6b7cc9;*/
+/*    transform: rotateX(90deg) translateZ(-150px) scale(1.25);*/
+/*    filter: blur(20px);*/
+/*    opacity: 0.5;*/
+/*}*/
+
+/*.stairs1 .step1{*/
+/*    position: absolute;*/
+/*    left: calc(50px * var(--j));*/
+/*    bottom: 0;*/
+/*    width: 50px;*/
+/*    height: calc(50px * var(--j));*/
+/*    !*background: red;*!*/
+/*    transform-style: preserve-3d;*/
+/*}*/
+
+/*.stairs1 .step1::before{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 15px;*/
+/*    left: 0px;*/
+/*    width: 50px;*/
+/*    height: 270px;*/
+/*    background:#a9b4ee ;*/
+/*    transform: rotateX(90deg) translateZ(150px);*/
+/*}*/
+
+/*.stairs1 .step1:hover::before {*/
+/*    filter: brightness(1.1);*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.stairs1 .step1::after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 15px;*/
+/*    width: 270px;*/
+/*    height: 50px;*/
+/*    background: #7889d0;*/
+/*    transform: rotateY(90deg) translateZ(-150px);*/
+/*}*/
+
+/*.stairs1 .step1 i{*/
+/*    position: absolute;*/
+/*    display: block;*/
+/*    width: 50px;*/
+/*    height: 100%;*/
+/*    background: #7283cb;*/
+/*    transform-style: preserve-3d;*/
+/*}*/
+
+/*.stairs1 .step1 i:nth-child(1)*/
+/*{*/
+/*    transform: translateZ(135px);*/
+/*}*/
+
+/*.stairs1 .step1 i:nth-child(2)*/
+/*{*/
+/*    transform: translateZ(-135px);*/
+/*}*/
+
+/*.stairs1 .step1:last-child i:nth-child(2)::before*/
+/*{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 270px;*/
+/*    height: 100%;*/
+/*    background: #5f71be;*/
+/*    transform: rotateY(90deg) translate3d(-135px,0,-85px);*/
+/*}*/
