@@ -18,6 +18,8 @@ from django.contrib import admin
 from django.shortcuts import HttpResponse
 from django.urls import path, include, re_path
 from django.views.static import serve
+from django.conf.urls.static import static
+from django.conf import settings
 
 from AIPEDIAproject.settings import MEDIA_ROOT,STATICFILES_DIRS
 from users.views import *
@@ -28,9 +30,10 @@ urlpatterns = [
     path('users/', include('users.urls',namespace='users')),
     path('content/',include('content.urls',namespace='content')),
     path('home/',home),
-    re_path(r'^media/(?P<path>.*)',serve, {'document_root': MEDIA_ROOT}),
-    re_path(r'^static/(?P<path>.*)',serve, {'document_root': STATICFILES_DIRS}),
+    # re_path(r'^media/(?P<path>.*)',serve, {'document_root': settings.MEDIA_ROOT}),
+    # re_path(r'^static/(?P<path>.*)',serve, {'document_root': settings.STATICFILES_DIRS}),
     # 验证码尝试
     # path('captcha/', include('captcha.urls')),
 ]
-# urlpatterns +=
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS)
