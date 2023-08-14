@@ -80,7 +80,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'AIPEDIAproject.wsgi.application'
 
 #file root
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 # video
 CHUNKED_UPLOAD_MAX_BYTES = 10000000000
@@ -146,7 +146,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
 #全局变量名，赋值一个元组
 STATICFILES_DIRS = (
