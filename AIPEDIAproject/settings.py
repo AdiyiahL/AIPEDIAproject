@@ -23,13 +23,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'km!3l-%xilt&dc-ax6ti1$3&n!(azzyqln4y24i(co256^2py!'
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'km!3l-%xilt&dc-ax6ti1$3&n!(azzyqln4y24i(co256^2py!'
+# SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG","False").lower() == "true"
-DEBUG = False
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+DEBUG = True
+ALLOWED_HOSTS = []
 
 
 # Application definition 每注册一个新的app都应该修改一下。注册顺序是优先级
@@ -90,24 +90,24 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'aipedia',
-        # 'USER': 'root',
-        # 'PASSWORD': 'lxt20000321',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+# DATABASES = {
+#     'default': {
+#         # 'ENGINE': 'django.db.backends.mysql',
+#         # 'NAME': 'aipedia',
+#         # 'USER': 'root',
+#         # 'PASSWORD': 'lxt20000321',
+#         # 'HOST': '127.0.0.1',
+#         # 'PORT': '3306',
+#     }
+# }
+# database_url = os.environ.get("DATABASE_URL")
+# DATABASES["default"] = dj_database_url.parse(database_url)
 # postgres://aipedia_django_render_user:hY2DHosbAwEc2AAimOnQlCouLL1n0K8e@dpg-cj9s7igp288c73bbs4lg-a.oregon-postgres.render.com/aipedia_django_render
 # psw: hY2DHosbAwEc2AAimOnQlCouLL1n0K8e
 # Password validation
