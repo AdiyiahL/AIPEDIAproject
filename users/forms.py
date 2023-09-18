@@ -57,3 +57,4 @@ class signUpForm(forms.Form):
     #     model = models.UserInfo
     #     fields = ('name', 'password1', 'password2',)
     error_messages = {'password_mismatch': 'The two passwords do not match', }
+

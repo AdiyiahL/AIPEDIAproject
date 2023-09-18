@@ -9,6 +9,7 @@ urlpatterns = [
     path('add/content/', views.addContent, name='addContent'),
     path('add/courses/', views.addCourses, name='addCourses'),
     path('getlevel2/',views.get_level2, name='get_level2'),
+    path('showcourses_labale1/',views.showcourses_labale1, name='showcourses_labale1'),
     path('ShowCourses/',views.ShowCourses, name='ShowCourses'),
     path('delete/contentlevel/', views.delete_contentlevel, name='delete_contentlevel' ),
     path('edit/contentlevel/', views.edit_contentlevel, name='edit_contentlevel'),
@@ -21,6 +22,8 @@ urlpatterns = [
     path('all_courses/',views.all_courses, name='all_courses'),
     path('play_list/',views.play_list,name='play_list'),
     path('homePage/', views.homePage, name = 'homePage'),
-    path('vuetest/', views.vuetest, name='vuetest')
+    path('vuetest/', views.vuetest, name='vuetest'),
+    path('get_user_level/', views.get_user_level, name='get_user_level')
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

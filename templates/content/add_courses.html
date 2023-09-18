@@ -13,15 +13,14 @@
   </div>
 
     <div class="form-group">
-    <label for="exampleInputEmail1">level1</label>
+    <label for="exampleInputEmail1">label1</label>
         <select name="level1_name" id="level1">
-            <option value ="select">select</option>
     {% for level1 in level1_list %}
         <option value ={{ level1.level1 }}>{{ level1.level1 }}</option>
     {% endfor %}
         </select>
     </br>
-    <label for="exampleInputEmail1">level2</label>
+    <label for="exampleInputEmail1">label2</label>
     <select name="sel_level2" id="level2">
     </select>
 {#    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="TITLE" name="title">#}
@@ -56,9 +55,8 @@
 {#alert("welcome");#}
       $.ajax({
         url: '/content/getlevel2/',
-
-          data:{"level1_name":$(this).val()},
-     type: 'GET',
+        data:{"level1_name":$(this).val()},
+        type: 'GET',
         dataType: 'json',
         success: function (data) {
             var content='';

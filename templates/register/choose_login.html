@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base/base.html" %}
+{% load static %}
+
+{% block content %}
 <h1 style="font-family: Algerian"> Sorry,you can not edit courses but you can share learning experience with us.</h1>
-<a href="/users/login/">
-    <button>user login</button>
-</a>
-<a href="/users/admin_login/">
-    <button>admin login</button>
-</a>
-</body>
-</html>
+
+<div class="buttons">
+       <a href="/content/add/content/">
+        <button class="button1">Share</button>
+        </a>
+        <a href="/users/admin_login/">
+        <button class="button1">Admin Login</button>
+        </a>
+        <a href="/content/courses_list">
+        <button class="button1">Back</button>
+        </a>
+</div>
+{% endblock %}

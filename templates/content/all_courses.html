@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link rel = "stylesheet" href="{% static 'css/content_style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content_box.css' %}">
+{#    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.4.1-dist/css/bootstrap.min.css' %}">#}
 </head>
 <body>
     <div class="navbar">
@@ -33,26 +35,130 @@
         <div class="text-part">
             <h1>What is {{content_object.title}}?</h1>
             <h2></h2>
-            <p>
-                {{content_object.contents }}
-            </p>
+<div class="content-box">
+                <pre class="content-box" >
+                    <p>
+{{content_object.contents }}
+                  </p>
+                </pre>
+</div>
             <section class="services-section"></section>
         </div>
     </div>
     <div class="how-area" id="how">
         <div class="text-part">
-            <p>
-                {{content_object.contents1 }}
-            </p>
+            <pre class="content-box" >
+                <p>
+{{content_object.contents1 }}
+                </p>
+            </pre>
             <section class="services-section"></section>
         </div>
     </div>
     <div class="play-area" id="play">
         <div class="text-part">
             <h2>You can learn more about this field using the link below:</h2>
+            <pre class="content-box" >
             <p>
-                {{content_object.source }}
+{{content_object.source }}
             </p>
+            </pre>
+        </div>
+
+    </div>
+
+        <div class="try-area" id="try">
+        <div class="text-part">
+            <div class="question-part">
+                <form method="post" action="/content/all_courses/?id={{content_object.id }}" novalidate>
+                {% csrf_token %}
+                <div class="question1">
+                    {{questions.question1}}
+                    <div class="options">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option1" id="optionsRadios1" value="A" >
+                            {{ questions.q1_o1 }}
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option1" id="optionsRadios2" value="B" >
+                              {{questions.q1_o2}}
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option1" id="optionsRadios3" value="C" >
+                            {{ questions.q1_o3 }}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question2">
+                    {{questions.question2}}
+                    <div class="options">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option2" id="optionsRadios1" value="A" >
+                            {{ questions.q2_o1 }}
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option2" id="optionsRadios2" value="B" >
+                              {{questions.q2_o2}}
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option2" id="optionsRadios3" value="C" >
+                            {{ questions.q2_o3 }}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="question3">
+                    {{questions.question3}}
+                    <div class="options">
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option3" id="optionsRadios1" value="A" >
+                            {{ questions.q3_o1 }}
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option3" id="optionsRadios2" value="B" >
+                              {{questions.q3_o2}}
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="option3" id="optionsRadios3" value="C" >
+                            {{ questions.q3_o3 }}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                    <button type="submit" class="button1">Confirm</button>
+
+                <p>
+                    <span style="font-size: medium; color: green">You answered {{ count }} questions correctly</span>
+                </p>
+                    <pre>
+Answer: {{ answers.as1 }}, {{ answers.as2 }}, {{ answers.as3 }}
+                    </pre>
+                </form>
+
+
+            </div>
         </div>
 
     </div>

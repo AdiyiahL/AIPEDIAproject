@@ -119,7 +119,7 @@ def success_signup(request):
 def home(request):
     user_session = request.session.get('user_session')
 
-    return render(request,"home.html",{"user_session":user_session})
+    return render(request, "index.html", {"user_session":user_session})
 
 
 def user_list(request):

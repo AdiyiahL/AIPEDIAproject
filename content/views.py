@@ -92,11 +92,11 @@ def addCourses(request):
             source = form.cleaned_data.get('source')
             level1 = request.POST.get('level1_name')
             level2 = request.POST.get('sel_level2')
-            print("11111111")
+            print(contents)
             user_obj_id = request.user_session["id"]
             models.NewCourses.objects.create(title=title,level1 = level1, level2=level2,contents=contents,contents1=contents1,source=source)
             print("save success")
-            return redirect("/content/content_list")
+            return redirect("/content/courses_list")
         else:
             print(form.errors)
             return render(request, 'content/add_courses.html', {'form': form})
@@ -110,6 +110,10 @@ def get_level2(request):
             print(data)
             return JsonResponse(data, safe=False)
 
+def get_user_level(request):
+    user_obj_id = request.user_session["id"]
+    level = user_models.UserInfo.objects.filter(id=user_obj_id).first().level
+    return JsonResponse(level,safe=False)
 
 def delete_contentlevel(request):
     id = request.GET.get('id')
@@ -137,12 +141,37 @@ def all_content(request):
         return render(request, "content/all_content.html", {"content_object": content_object,"steps":steps})
 
 def all_courses(request):
+    content_id = request.GET.get("id")
+    content_object = models.NewCourses.objects.filter(id=content_id).first()
+    steps = [1, 2, 3, 4, 5]
+    print(content_object)
+    title = content_object.title
+    print(title)
+    questions = models.Questions.objects.filter(title=title).first()
     if request.method=="GET":
-        content_id = request.GET.get("id")
-        content_object = models.NewCourses.objects.filter(id=content_id).first()
-        steps = [1,2,3,4,5]
-        print(content_object)
-        return render(request, "content/all_courses.html", {"content_object": content_object})
+        return render(request, "content/all_courses.html", {"content_object": content_object,"questions":questions})
+    else:
+        op1 = request.POST.get('option1')
+        op2 = request.POST.get('option2')
+        op3 = request.POST.get('option3')
+        count = 0
+        if op1 == questions.answer1:
+            count+=1
+        if op2 == questions.answer2:
+            count+=1
+        if op3 == questions.answer3:
+            count+=1
+        user_obj_id = request.user_session["id"]
+        user_obj = user_models.UserInfo.objects.filter(id = user_obj_id).first()
+        user_level = user_obj.level
+        new_user_level = user_level + 1
+        user_models.UserInfo.objects.filter(id = user_obj_id).update(level=new_user_level)
+        as1 = questions.answer1
+        as2 = questions.answer2
+        as3 = questions.answer3
+        answers = {"as1":as1,"as2":as2,"as3":as3}
+        return render(request, "content/all_courses.html", {"content_object": content_object, "questions": questions,"count":count,"answers":answers})
+
 
 def content_list(request):
     # query
@@ -162,6 +191,19 @@ def all_read_list(request):
 def all_courses_list(request):
     queryset = models.NewCourses.objects.all().order_by("id")
     return render(request, 'content/all_courses_list.html', {"queryset": queryset})
+
+
+def showcourses_labale1(request):
+    if request.method == "GET":
+        courses_lable = request.GET.get("lable")
+        print(courses_lable)
+        queryset = models.NewCourses.objects.all().filter(level1=courses_lable)
+        print(queryset)
+        return render(request, "content/showcourses_labale1.html", {"queryset":queryset})
+
+
+    queryset = models.NewContent.objects.all().order_by("id")
+    return render(request, 'content/all_read_list.html', {"queryset": queryset})
 
 def ShowCourses(request):
     if request.method == "GET":

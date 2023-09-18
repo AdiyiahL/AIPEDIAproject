@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import users.apps
-import dj_database_url
+# import dj_database_url
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,13 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'km!3l-%xilt&dc-ax6ti1$3&n!(azzyqln4y24i(co256^2py!'
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'km!3l-%xilt&dc-ax6ti1$3&n!(azzyqln4y24i(co256^2py!'
+# SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG","False").lower() == "true"
-DEBUG = False
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
+DEBUG = True
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition 每注册一个新的app都应该修改一下。注册顺序是优先级
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'AIPEDIAproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')], #存放template的目录文件名，项目会优先从这里找文件
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,35 +80,37 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'AIPEDIAproject.wsgi.application'
 
-#file root
+# file root
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
 # video
-CHUNKED_UPLOAD_MAX_BYTES = 10000000000
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# CHUNKED_UPLOAD_MAX_BYTES = 10000000000
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'aipedia',
-        # 'USER': 'root',
-        # 'PASSWORD': 'lxt20000321',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-database_url = os.environ.get("DATABASE_URL")
-DATABASES["default"] = dj_database_url.parse(database_url)
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'aipedia',
+#         'USER': 'root',
+#         'PASSWORD': 'lxt20000321',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#     }
+# }
+# for render-----------
+# database_url = os.environ.get("DATABASE_URL")
+# DATABASES["default"] = dj_database_url.parse(database_url)
+# for render-----------
 # postgres://aipedia_django_render_user:hY2DHosbAwEc2AAimOnQlCouLL1n0K8e@dpg-cj9s7igp288c73bbs4lg-a.oregon-postgres.render.com/aipedia_django_render
 # psw: hY2DHosbAwEc2AAimOnQlCouLL1n0K8e
 # Password validation
@@ -148,8 +151,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#全局变量名，赋值一个元组
+# 全局变量名，赋值一个元组
 STATICFILES_DIRS = (
-    #static这个名字和项目下新建的目录static对应，和引用无关
-    os.path.join(BASE_DIR,'static'),
+    # static这个名字和项目下新建的目录static对应，和引用无关
+    os.path.join(BASE_DIR, "static"),
 )

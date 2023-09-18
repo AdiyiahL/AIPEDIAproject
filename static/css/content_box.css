@@ -1,0 +1,8 @@
+.content-box{
+    /*width: 400px;*/
+white-space: pre-wrap;
+}
+
+.question1,.question2,.question3{
+    margin: 30px;
+}

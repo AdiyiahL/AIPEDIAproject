@@ -68,6 +68,7 @@ a:hover{
 .text-part{
     width: 65%;
     height: 80%;
+    align-items: center;
 }
 
 h1{
